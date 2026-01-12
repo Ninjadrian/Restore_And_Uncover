@@ -3,6 +3,7 @@ using UnityEngine;
 public class LightSwitch : MonoBehaviour
 {
     public Light[] lights;
+    public float offsetRotation;
 
     // Update is called once per frame
     void Update()
@@ -19,5 +20,9 @@ public class LightSwitch : MonoBehaviour
         {
             light.enabled = !light.enabled;
         }
+
+        Transform sw = transform.GetChild(1);
+        sw.rotation = sw.rotation * Quaternion.Euler(offsetRotation, 0f, 0f);
+        offsetRotation = -offsetRotation;
     }
 }

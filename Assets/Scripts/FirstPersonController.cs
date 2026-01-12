@@ -24,6 +24,7 @@ public class FirstPersonController : MonoBehaviour
 
     private LightSwitch lightSwitch;
     private Drawer drawer;
+    private Door door;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,8 +32,8 @@ public class FirstPersonController : MonoBehaviour
         controller = GetComponent<CharacterController>();
 
         // Bloquear y esconder el cursor en el centro de la pantalla
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -47,7 +48,7 @@ public class FirstPersonController : MonoBehaviour
 
             if (Physics.Raycast(ray, out RaycastHit hit, interactDistance, interactMask))
             {
-                Debug.Log("El objeto es: " + hit.collider.name);
+                //Debug.Log("El objeto es: " + hit.collider.name);
 
                 if (hit.collider.CompareTag("Switch"))
                 {
@@ -58,6 +59,11 @@ public class FirstPersonController : MonoBehaviour
                 {
                     drawer = hit.collider.GetComponent<Drawer>();
                     drawer.OpenDrawer();
+                }
+                else if (hit.collider.CompareTag("Door"))
+                {
+                    door = hit.collider.GetComponent<Door>();
+                    door.OpenDoor();
                 }
             }
         }

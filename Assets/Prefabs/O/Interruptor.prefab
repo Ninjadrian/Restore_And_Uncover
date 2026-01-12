@@ -84,6 +84,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  offsetRotation: -17
 --- !u!65 &7553156396325725549
 BoxCollider:
   m_ObjectHideFlags: 0

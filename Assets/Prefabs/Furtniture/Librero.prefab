@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 2016986595565966800}
   - component: {fileID: 8115807150391304209}
   - component: {fileID: 6187587953561527715}
+  - component: {fileID: 4561298460186049963}
+  - component: {fileID: 6515092041797001416}
   m_Layer: 0
   m_Name: Plane.004
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,6 +92,42 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4561298460186049963
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680707232814418928}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.004095883, y: 0.00014687907, z: 0.004397324}
+  m_Center: {x: -0.0020479378, y: 7.275956e-11, z: 0.000019926807}
+--- !u!114 &6515092041797001416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680707232814418928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52563a1199441547a7b953cb1268399, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
+  offsetRotation: 90
+  duration: 1
+  rotation: {x: 0, y: 0, z: -90}
 --- !u!1 &877967778504260436
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,8 +722,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.92, y: 2.22, z: 0.32}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.92, y: 2.22, z: 0.29075876}
+  m_Center: {x: -0, y: 0, z: -0.014620617}
 --- !u!1 &5258433915369404135
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,9 +824,11 @@ GameObject:
   - component: {fileID: 1095599972404427895}
   - component: {fileID: 645481702132762228}
   - component: {fileID: 6433113553437915801}
+  - component: {fileID: 3392647128571566069}
+  - component: {fileID: 3285753334378809029}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -865,6 +905,42 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3392647128571566069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6137267284343932217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52563a1199441547a7b953cb1268399, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
+  offsetRotation: 90
+  duration: 1
+  rotation: {x: 0, y: 0, z: -90}
+--- !u!65 &3285753334378809029
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6137267284343932217}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.004095883, y: 0.00014687907, z: 0.004397324}
+  m_Center: {x: 0.0020479434, y: 7.275956e-11, z: 0.000019926807}
 --- !u!1 &6307601687361270834
 GameObject:
   m_ObjectHideFlags: 0

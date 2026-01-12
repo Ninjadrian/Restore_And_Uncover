@@ -3,27 +3,25 @@ using UnityEngine;
 
 public class Drawer : MonoBehaviour
 {
-    public Vector3 localOpenOffset = new Vector3(0f, 0f, 0.33f);
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Vector3 localOffset = new Vector3(0f, 0f, 0.33f);
+    public float duration = 1f;
 
     public void OpenDrawer()
     {
-        this.transform.localPosition = this.transform.localPosition + localOpenOffset;  
+        StartCoroutine(MoveDrawer());
     }
 
     public IEnumerator MoveDrawer()
     {
-        while (true)
+        float t = 0;
+
+        while (t < 1f)
         {
-            this.transform.position = Vector3.Lerp(this.transform.position, this.transform.position + localOpenOffset, Time.deltaTime);
+            t += Time.deltaTime / duration;
+            this.transform.localPosition = Vector3.Lerp(this.transform.localPosition, this.transform.localPosition + localOffset, Time.deltaTime);
             yield return null;
         }
-    }
 
-    
+        localOffset = -localOffset;
+    } 
 }
