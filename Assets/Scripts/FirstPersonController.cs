@@ -8,6 +8,8 @@ public class FirstPersonController : MonoBehaviour
     public float gravity = -9.81f;
     public float jumpHeight = 1.5f;
 
+    private bool isCrouch = false;
+
     [Header("Camera Look")]
     public Transform cameraTransform;
     public float mouseSensitivity = 200f;
@@ -25,6 +27,7 @@ public class FirstPersonController : MonoBehaviour
     private LightSwitch lightSwitch;
     private Drawer drawer;
     private Door door;
+    private Strongbox strongbox;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -44,29 +47,14 @@ public class FirstPersonController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
-
-            if (Physics.Raycast(ray, out RaycastHit hit, interactDistance, interactMask))
-            {
-                //Debug.Log("El objeto es: " + hit.collider.name);
-
-                if (hit.collider.CompareTag("Switch"))
-                {
-                    lightSwitch = hit.collider.GetComponent<LightSwitch>();
-                    lightSwitch.SwitchLights();
-                } 
-                else if (hit.collider.CompareTag("Drawer"))
-                {
-                    drawer = hit.collider.GetComponent<Drawer>();
-                    drawer.OpenDrawer();
-                }
-                else if (hit.collider.CompareTag("Door"))
-                {
-                    door = hit.collider.GetComponent<Door>();
-                    door.OpenDoor();
-                }
-            }
+            Interact();
         }
+
+        if (Input.GetKeyDown(KeyCode.CapsLock))
+        {
+            Crouch();
+        }
+
     }
 
     void HandleMovement()
@@ -118,5 +106,51 @@ public class FirstPersonController : MonoBehaviour
 
         // Rotar cuerpo izquierda/derecha
         transform.Rotate(Vector3.up * mouseX);
+    }
+
+    void Interact()
+    {
+        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+
+        if (Physics.Raycast(ray, out RaycastHit hit, interactDistance, interactMask))
+        {
+            //Debug.Log("El objeto es: " + hit.collider.name);
+
+            if (hit.collider.CompareTag("Switch"))
+            {
+                lightSwitch = hit.collider.GetComponent<LightSwitch>();
+                lightSwitch.SwitchLights();
+            }
+            else if (hit.collider.CompareTag("Drawer"))
+            {
+                drawer = hit.collider.GetComponent<Drawer>();
+                drawer.OpenDrawer();
+            }
+            else if (hit.collider.CompareTag("Door"))
+            {
+                door = hit.collider.GetComponent<Door>();
+                door.OpenDoor();
+            }
+            else if (hit.collider.CompareTag("Strongbox"))
+            {
+                strongbox = hit.collider.GetComponent<Strongbox>();
+                strongbox.changeCamera();
+            }
+        }
+    }
+
+    void Crouch()
+    {
+        if (!isCrouch)
+        {
+            controller.height = 1f;
+            cameraTransform.localPosition = new Vector3(0f, 1.1f, 0f);
+        }
+        else if (isCrouch)
+        {
+            controller.height = 1.76f;
+            cameraTransform.localPosition = new Vector3(0f, 1.6f, 0f);
+        }
+        isCrouch = !isCrouch;
     }
 }

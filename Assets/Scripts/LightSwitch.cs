@@ -5,6 +5,8 @@ public class LightSwitch : MonoBehaviour
     public Light[] lights;
     public float offsetRotation;
 
+    public bool hasKeyCard = true;
+
     // Update is called once per frame
     void Update()
     {
@@ -16,9 +18,12 @@ public class LightSwitch : MonoBehaviour
 
     public void SwitchLights()
     {
-        foreach (Light light in lights)
+        if (hasKeyCard)
         {
-            light.enabled = !light.enabled;
+            foreach (Light light in lights)
+            {
+                light.enabled = !light.enabled;
+            }
         }
 
         Transform sw = transform.GetChild(1);

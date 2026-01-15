@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public float offsetRotation = 90f;
     public float duration = 1f;
     public Vector3 rotation;
 
@@ -26,6 +25,5 @@ public class Door : MonoBehaviour
         }
 
         rotation = -rotation;
-        offsetRotation = -offsetRotation;
     }
 }
