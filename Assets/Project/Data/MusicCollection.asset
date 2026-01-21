@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97466808ebad4041a532b6f3fee9faf, type: 3}
+  m_Name: MusicCollection
+  m_EditorClassIdentifier: Assembly-CSharp::AudioCollectionSO
+  audioClips:
+  - {fileID: 8300000, guid: 616dd75609fd8a243968862a63a34715, type: 3}
+  - {fileID: 8300000, guid: 39239dafb7ec438449fb8e9bd6145b4c, type: 3}
+  - {fileID: 8300000, guid: 8c481f399402a864cb33cdfd430c6e41, type: 3}
+  - {fileID: 8300000, guid: 67e7d3f41f1cb414c94dc8499b3e26a5, type: 3}
+  - {fileID: 8300000, guid: 8d13a328577824b4d96c5ef187d3efc1, type: 3}
+  - {fileID: 8300000, guid: 6c5a56f6061429a41bf38d6e93fdb899, type: 3}
+  - {fileID: 8300000, guid: 816730d9ccf216549b38f7ab7a986677, type: 3}
+  - {fileID: 8300000, guid: 1d584a93f4121a84c8eb1b11b464ea87, type: 3}
+  - {fileID: 8300000, guid: dd61425c4667a174d86db5723e2a0692, type: 3}
