@@ -5,15 +5,20 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     public GameObject menuPanel;
+    public GameObject singlePlayerPanel;
     public GameObject optionsPanel;
     public GameObject collectionPanel;
     public GameObject creditsPanel;
 
     public GameObject audioPanel;
+    public GameObject videoPanel;
 
     public GameObject hud;
 
-    private bool isPaused;
+    public GameEvent pauseGameEvent;
+    public GameEvent playGameEvent;
+
+    private bool isPaused = false;
 
     private void Start()
     {
@@ -21,7 +26,7 @@ public class MenuManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
-            Menu();
+            menuPanel.SetActive(true);
         }
 
         else
@@ -32,32 +37,49 @@ public class MenuManager : MonoBehaviour
 
     private void Update()
     {
+        if (SceneManager.GetActiveScene().name == "MainMenu") return;
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Pause();
-        }
+        } 
     }
 
     public void Clear()
     {
         menuPanel.SetActive(false);
         optionsPanel.SetActive(false);
+        singlePlayerPanel.SetActive(false);
         collectionPanel.SetActive(false);
         creditsPanel.SetActive(false);
+
         audioPanel.SetActive(false);
+        videoPanel.SetActive(false);
+
         hud.SetActive(false);
     }
 
     public void Menu()
     {
-        optionsPanel.SetActive(false);
-        collectionPanel.SetActive(false);
-        creditsPanel.SetActive(false);
+        Clear();
         menuPanel.SetActive(true);
     }
 
     public void SinglePlayer()
     {
+        menuPanel.SetActive(false);
+        singlePlayerPanel.SetActive(true);
+    }
+
+    public void StartSingleGame()
+    {
+        InventoryManager.Instance.InitializeInventory();
+        SceneManager.LoadScene("Level1");
+    }
+
+    public void ContinueSingleGame()
+    {
+        PlayerProfiler.Instance.LoadProfile();
         SceneManager.LoadScene("Level1");
     }
 
@@ -79,6 +101,12 @@ public class MenuManager : MonoBehaviour
         audioPanel.SetActive(true);
     }
 
+    public void VideoOptions()
+    {
+        optionsPanel.SetActive(false);
+        videoPanel.SetActive(true);
+    }
+
     public void Collection()
     {
         menuPanel.SetActive(false);
@@ -97,28 +125,26 @@ public class MenuManager : MonoBehaviour
     }
 
     public void Pause()
-    {
-        if (SceneManager.GetActiveScene().name != "MainMenu")
-        {
-            Clear();
-            isPaused = !isPaused;
-            hud.SetActive(!isPaused);
-            menuPanel.SetActive(isPaused);
+    {     
+        Clear();
+        isPaused = !isPaused;
+        hud.SetActive(!isPaused);
+        menuPanel.SetActive(isPaused);
 
-            if (isPaused)
-            {
-                Time.timeScale = 0f;
-            }
-            else
-            {
-                Time.timeScale = 1f;
-            }
+        if (isPaused)
+        {
+            pauseGameEvent.Raise();
+        }
+        else
+        {
+            playGameEvent.Raise();
         }
     }
 
     public void ReturnToMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        PlayerProfiler.Instance.SaveProfile();
+        SceneManager.LoadScene("MainMenu");       
     }
 }
 

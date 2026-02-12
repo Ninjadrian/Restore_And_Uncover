@@ -4,6 +4,8 @@ using UnityEngine.Audio;
 
 public class Door : MonoBehaviour
 {
+    [SerializeField] private string keyId;
+
     public float duration = 1f;
     public Vector3 rotation;
 
@@ -20,7 +22,22 @@ public class Door : MonoBehaviour
 
     public void OpenDoor()
     {
-        StartCoroutine(MoveDoor());
+        if (string.IsNullOrEmpty(keyId))
+        {
+            StartCoroutine(MoveDoor());
+        }
+        else 
+        {
+            ToolData activeTool = ToolRig.Instance.GetCurrentTool();
+            if (activeTool.id == keyId)
+            {
+                StartCoroutine(MoveDoor());
+                keyId = null;
+                InventoryManager.Instance.RemoveTool(activeTool);
+                ToolRig.Instance.Unequip();
+            }
+            else return;
+        }
     }
 
     public IEnumerator MoveDoor()

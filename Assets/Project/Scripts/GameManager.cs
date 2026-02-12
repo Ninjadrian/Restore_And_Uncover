@@ -2,15 +2,36 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static GameManager Instance;
+
+    public GameState gameState;
+
+    private void Awake()
     {
-        
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        Play();
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Pause()
     {
-        
+        gameState = GameState.PAUSE;
+        Time.timeScale = 0f;
+    }
+
+    public void Play()
+    {
+        gameState = GameState.PLAY;
+        Time.timeScale = 1f;
     }
 }
+
+public enum GameState { HOME, PLAY, PAUSE, Gameplay, Puzzle, Mobile }

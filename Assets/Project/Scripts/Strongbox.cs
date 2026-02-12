@@ -8,8 +8,6 @@ public class Strongbox : MonoBehaviour
     public GameObject counterDayPanel;
     public GameObject toolPanel;
 
-    public Transform cameraTransform;
-
     public float mouseSensitivity = 200f;
     public float minLookX = -40;
     public float maxLookX = 40f;
@@ -76,6 +74,11 @@ public class Strongbox : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, interactDistance, interactMask))
         {
             Debug.Log("El objeto es: " + hit.collider.name);
+
+            if (hit.collider.CompareTag("Untagged"))
+            {
+                isTrying = false;
+            }
         }
         Debug.DrawRay(ray.origin, ray.direction * interactDistance, Color.green);
 

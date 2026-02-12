@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LightSwitch : MonoBehaviour
@@ -5,20 +6,28 @@ public class LightSwitch : MonoBehaviour
     public Light[] lights;
     public float offsetRotation;
 
-    public bool hasKeyCard = true;
+    private bool hasPower;
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        //if (Input.GetKeyDown(KeyCode.E))
-        //{
-        //    SwitchLights();
-        //}
+        PowerSytem.OnPowerChanged += HandlePowerChanged;
+
+        hasPower = PowerSytem.HasPower;
+    }
+
+    private void OnDisable()
+    {
+        PowerSytem.OnPowerChanged -= HandlePowerChanged;
+    }
+
+    private void HandlePowerChanged(bool value)
+    {
+        hasPower = value;
     }
 
     public void SwitchLights()
     {
-        if (hasKeyCard)
+        if (hasPower)
         {
             foreach (Light light in lights)
             {

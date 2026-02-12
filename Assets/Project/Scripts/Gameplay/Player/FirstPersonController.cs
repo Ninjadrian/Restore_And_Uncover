@@ -29,7 +29,8 @@ public class FirstPersonController : MonoBehaviour
     private Door door;
     private Strongbox strongbox;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private bool canMove = true;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -39,22 +40,23 @@ public class FirstPersonController : MonoBehaviour
         //Cursor.visible = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        HandleMovement();
-        HandleMouseLook();
-
-        if (Input.GetKeyDown(KeyCode.E))
+        if (canMove)
         {
-            Interact();
-        }
+            HandleMovement();
+            HandleMouseLook();
 
-        if (Input.GetKeyDown(KeyCode.CapsLock))
-        {
-            Crouch();
-        }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Interact();
+            }
 
+            if (Input.GetKeyDown(KeyCode.CapsLock))
+            {
+                Crouch();
+            }
+        }
     }
 
     void HandleMovement()
@@ -135,6 +137,14 @@ public class FirstPersonController : MonoBehaviour
             {
                 strongbox = hit.collider.GetComponent<Strongbox>();
                 strongbox.changeCameraTransform();
+                canMove = false;
+            } 
+            else if (hit.collider.TryGetComponent<ToolPickUp>(out var toolPickUp))
+            {
+                toolPickUp.PickUp();
+            }
+            else if (hit.collider.TryGetComponent<ValidateKeyCard>(out var keyCard)){
+                keyCard.ActiveSwitchCard();
             }
         }
     }
