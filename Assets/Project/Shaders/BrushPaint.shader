@@ -1,63 +1,46 @@
-Shader "MyShaders/BrushPaint"
+Shader "MyShaders/BrushPaint_V3"
 {
+    Properties
+    {
+        _MainTex ("Texture", 2D) = "black" {}
+        _CenterRadius ("Center Radius", Vector) = (0,0,0,0) 
+        _Strength ("Strength", Float) = 1
+    }
+
     SubShader
     {
-        Tags { "RenderType" = "Opaque" "Queue" = "Overlay" }
+        Tags { "RenderType"="Opaque" }
+        Cull Off ZWrite Off ZTest Always 
 
         Pass
         {
-            ZTest Always Zwrite off Cull off
-            HLSLPROGRAM
-
-            #pragma vertex vert
+            CGPROGRAM
+            #pragma vertex vert_img 
             #pragma fragment frag
+            #include "UnityCG.cginc" 
 
-            #include "UnityCG.cginc"
+            sampler2D _MainTex;
+            float4 _CenterRadius;
+            float _Strength;
 
-            sampler2D _MainTex;     // máscara actual
-            float4 _CenterRadius;    // (u, v, radius, hardness)
-            float _Strength;        // 0..1 por pasada
-
-            struct appdata
+            fixed4 frag (v2f_img i) : SV_Target
             {
-                float4 vertex : POSITION;
-                float2 uv : TEXCOORD0;
-            };
-
-            struct v2f
-            {
-                float4 pos : SV_POSITION;
-                float2 uv : TEXCOORD0;
-            };
-
-            v2f vert(appdata v)
-            {
-                v2f o;
-                o.pos = UnityObjectToClipPos(v.vertex);
-                o.uv = v.uv;
-                return o;
-            }
-
-            fixed4 frag(v2f i) : SV_Target
-            {
-                float current = tex2D(_MainTex, i.uv).r;
+                
+                fixed oldPixel = tex2D(_MainTex, i.uv).r;
 
                 float2 center = _CenterRadius.xy;
                 float radius = _CenterRadius.z;
-                float hardness = _CenterRadius.w; //0 = suave, 1 = duro
+                float hardness = _CenterRadius.w;
+                
+                float dist = distance(i.uv, center);
+                float brush = 1.0 - smoothstep(radius * hardness, radius, dist);
+                brush *= _Strength;
 
-                float d = distance(i.uv, center);
+                float result = max(oldPixel, brush);
 
-                //Brush: 1 dentro, 0 fuera (con suavizado)
-                float edge = max(1e-5, radius * (1.0 - hardness));
-                float brush = 1.0 - smoothstep(radius - edge, radius, d);
-
-                //Limpio (0). Blanco = polvo (1)
-                float cleaned = lerp(current, 0.0, brush * _Strength);
-
-                return fixed4(cleaned, cleaned, cleaned, 1);
+                return fixed4(result, result, result, 1.0);
             }
-            ENDHLSL
+            ENDCG
         }
     }
 }
