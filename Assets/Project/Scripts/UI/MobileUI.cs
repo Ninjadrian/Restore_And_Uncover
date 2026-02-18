@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem.HID;
-using static UnityEngine.AudioSettings;
 
 public class MobileUI : MonoBehaviour
 {
@@ -24,7 +23,7 @@ public class MobileUI : MonoBehaviour
     {
         if (GameManager.Instance.gameState == GameState.PLAY)
         {
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.Z))
             {
                 Mobile();
             }

@@ -21,7 +21,7 @@ public class MessagesUI : MonoBehaviour
     {
         yield return new WaitForSeconds(delaySeconds);
         MessageReceived(0);
-        Debug.Log("Mensaje recibido");
+        //Debug.Log("Mensaje recibido");
     }
 
     //private void OnEnable()

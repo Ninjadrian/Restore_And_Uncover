@@ -1503,7 +1503,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 844b1ae0251b0364895efc5e35cd7c40, type: 2}
   - {fileID: 11400000, guid: 9f8c6228e333c61438ad7ab0f4fe6a67, type: 2}
   - {fileID: 11400000, guid: d8e110726756e3e40b134e35011040e5, type: 2}
-  inventory: []
+  inventoryTools: []
+  startingBlueprint: {fileID: 11400000, guid: 0319a4cda166ee042a5d3a2a91eb5349, type: 2}
+  unlockedBlueprints: []
 --- !u!4 &650150413
 Transform:
   m_ObjectHideFlags: 0

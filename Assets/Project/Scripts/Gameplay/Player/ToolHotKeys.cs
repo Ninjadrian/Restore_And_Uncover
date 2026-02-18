@@ -28,7 +28,7 @@ public class ToolHotKeys : MonoBehaviour
 
     void EquipSlot(int index)
     {
-        var inv = InventoryManager.Instance.inventory;
+        var inv = InventoryManager.Instance.inventoryTools;
         if (index < 0 || index >= inv.Count) return;
 
         toolRig.Equip(inv[index]);

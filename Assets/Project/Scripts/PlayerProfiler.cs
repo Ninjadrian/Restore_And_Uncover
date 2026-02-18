@@ -46,7 +46,7 @@ public class PlayerProfiler : MonoBehaviour
         //Limpiamos la lista
         data.ownedTools.Clear();
         //Guardamos las herramientas
-        foreach (ToolData tool in InventoryManager.Instance.inventory)
+        foreach (ToolData tool in InventoryManager.Instance.inventoryTools)
         {
             data.ownedTools.Add(tool.id);
         }
@@ -78,13 +78,13 @@ public class PlayerProfiler : MonoBehaviour
 
     private void RestoreInventory()
     {
-        InventoryManager.Instance.inventory.Clear();
+        InventoryManager.Instance.inventoryTools.Clear();
 
         foreach (string toolId in data.ownedTools)
         {
             ToolData tool = ToolDatabase.instance.GetTool(toolId);
             if (tool != null)
-                InventoryManager.Instance.inventory.Add(tool);
+                InventoryManager.Instance.inventoryTools.Add(tool);
         }
     }
 

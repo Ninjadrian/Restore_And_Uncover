@@ -143,6 +143,10 @@ public class FirstPersonController : MonoBehaviour
             {
                 toolPickUp.PickUp();
             }
+            else if (hit.collider.TryGetComponent<RecyclablePickUp>(out var recyclablePickUp))
+            {
+                recyclablePickUp.PickUp();
+            }
             else if (hit.collider.TryGetComponent<ValidateKeyCard>(out var keyCard)){
                 keyCard.ActiveSwitchCard();
             }
