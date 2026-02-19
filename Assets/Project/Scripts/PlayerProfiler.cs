@@ -42,9 +42,11 @@ public class PlayerProfiler : MonoBehaviour
         return Path.Combine(Application.persistentDataPath, fileName);
     }
 
-    public void SaveProfile() {    
+    public void SaveProfile() {
+        
         //Limpiamos la lista
         data.ownedTools.Clear();
+
         //Guardamos las herramientas
         foreach (ToolData tool in InventoryManager.Instance.inventoryTools)
         {
@@ -53,6 +55,10 @@ public class PlayerProfiler : MonoBehaviour
 
         data.collectedPickups.Clear();
         data.collectedPickups.AddRange(collectedSet);
+
+        //Guardamos máscaras de limpieza
+        foreach (var surface in FindObjectsByType<CleanableSurface>(FindObjectsSortMode.None))
+            surface.SaveMaskToDisc();
 
         string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(GetFilePath(), json);

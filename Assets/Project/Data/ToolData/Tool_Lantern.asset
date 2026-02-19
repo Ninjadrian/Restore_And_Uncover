@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8d44df1157f08343a94d0e64651315b, type: 3}
-  m_Name: Tool_Flashlight
+  m_Name: Tool_Lantern
   m_EditorClassIdentifier: Assembly-CSharp::ToolData
-  id: flashlight
+  id: lantern
   toolName: Linterna
   icon: {fileID: 21300000, guid: 830084d0f536fd146841f1b15d4381b9, type: 3}
-  toolPrefab: {fileID: 0}

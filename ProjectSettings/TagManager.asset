@@ -9,6 +9,7 @@ TagManager:
   - Door
   - Strongbox
   - Item
+  - RugPiece
   layers:
   - Default
   - TransparentFX

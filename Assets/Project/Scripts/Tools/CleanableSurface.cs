@@ -1,10 +1,11 @@
+using System.IO;
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.UI;
 
 public class CleanableSurface : MonoBehaviour
 {
     public string surfaceName;
+    public string surfaceId;
 
     public int maskResolution = 1024;
     private string maskPropertyName = "_CleanMask"; 
@@ -23,6 +24,8 @@ public class CleanableSurface : MonoBehaviour
         maskPropId = Shader.PropertyToID(maskPropertyName);
 
         InitializeTexture();
+        LoadMaskFromDisc();
+        CalculateProgress();
     }
 
     void InitializeTexture()
@@ -73,5 +76,46 @@ public class CleanableSurface : MonoBehaviour
             PercentageCleaned = averageValue * 100f;
 
         }
+    }
+
+    private string GetMaskPath()
+    {
+        return Path.Combine(Application.persistentDataPath, $"cleanmask_{surfaceId}.png");
+    }
+
+    public void SaveMaskToDisc()
+    {
+        if (MaskRT == null) return;
+        if (!MaskRT.IsCreated()) MaskRT.Create();
+
+        var old = RenderTexture.active;
+        RenderTexture.active = MaskRT;
+
+        Texture2D tex = new Texture2D(MaskRT.width, MaskRT.height, TextureFormat.ARGB32, false, true);
+        tex.ReadPixels(new Rect(0, 0, MaskRT.width, MaskRT.height), 0, 0);
+        tex.Apply(false, false);
+
+        RenderTexture.active = old;
+
+        byte[] png = tex.EncodeToPNG();
+        Destroy(tex);
+
+        File.WriteAllBytes(GetMaskPath(), png);
+    }
+
+    public void LoadMaskFromDisc()
+    {
+        string path = GetMaskPath();
+        if (!File.Exists(path)) return;
+
+        byte[] png = File.ReadAllBytes(path);
+
+        Texture2D tex = new Texture2D(2,2, TextureFormat.ARGB32, false, true);
+        ImageConversion.LoadImage(tex, png, false);
+
+        Graphics.Blit(tex, MaskRT);
+        Destroy(tex);
+
+        MaskRT.GenerateMips();
     }
 }
