@@ -105,4 +105,23 @@ public class PlayerProfiler : MonoBehaviour
     {
         return !string.IsNullOrEmpty(pickupId) && collectedSet.Contains(pickupId);
     }
+
+    public void StartNewGame()
+    {
+        data = new PlayerData();
+        collectedSet.Clear();
+
+        DeleteAllCleanMasks();
+
+        SaveProfile();
+    }
+
+    private void DeleteAllCleanMasks()
+    {
+        string dir = Application.persistentDataPath;
+        var files = Directory.GetFiles(dir, "cleanmask_*.png");
+
+        foreach (var f in files)
+            File.Delete(f);
+    }
 }

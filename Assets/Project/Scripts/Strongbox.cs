@@ -3,10 +3,13 @@ using UnityEngine;
 public class Strongbox : MonoBehaviour
 {
     public Camera strongboxCamera;
+
     public GameObject cleanlinessPanel;
     public GameObject timePanel;
     public GameObject counterDayPanel;
     public GameObject toolPanel;
+
+    public GameObject puzzleObjects;
 
     public float mouseSensitivity = 200f;
     public float minLookX = -40;
@@ -21,31 +24,32 @@ public class Strongbox : MonoBehaviour
     public float interactDistance = 0.5f;
     public LayerMask interactMask;
 
-    private bool isTrying = false;
+    [SerializeField] private string codeValue = "7829";
+    private string value = "0000";
+    private char buttonNumber;
 
-    private BoxCollider boxCol;
+    private Door door;
 
     private void Update()
     {
-        if (isTrying)
+        if (GameManager.Instance.gameState == GameState.Puzzle)
         {
             HandleMouseLook();
 
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyUp(KeyCode.E))
             {
                 Interact();
             }
         }
     }
 
-    public void changeCameraTransform()
+    public void ActivePuzzle()
     {
+        xRotation = 0f;
+        yRotation = 180f;
+
         strongboxCamera.gameObject.SetActive(true);
-
-        boxCol = GetComponent<BoxCollider>();
-        boxCol.enabled = false;
-
-        isTrying = true;
+        puzzleObjects.gameObject.SetActive(true);
 
         cleanlinessPanel.SetActive(false);
         timePanel.SetActive(false);
@@ -53,7 +57,20 @@ public class Strongbox : MonoBehaviour
         toolPanel.SetActive(false);
     }
 
-    void HandleMouseLook()
+    private void DeactivePuzzle()
+    {
+        strongboxCamera.gameObject.SetActive(false);
+        puzzleObjects.gameObject.SetActive(false);
+
+        cleanlinessPanel.SetActive(true);
+        timePanel.SetActive(true);
+        counterDayPanel.SetActive(true);
+        toolPanel.SetActive(true);
+
+        GameManager.Instance.gameState = GameState.PLAY;
+    }
+
+    private void HandleMouseLook()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
@@ -67,7 +84,7 @@ public class Strongbox : MonoBehaviour
         strongboxCamera.transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
     }
 
-    void Interact()
+    private void Interact()
     {
         Ray ray = strongboxCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
 
@@ -75,12 +92,41 @@ public class Strongbox : MonoBehaviour
         {
             Debug.Log("El objeto es: " + hit.collider.name);
 
-            if (hit.collider.CompareTag("Untagged"))
+            var col = hit.collider;
+
+            if (col.CompareTag("Exit"))
             {
-                isTrying = false;
+                Debug.Log("Saliendo");
+                DeactivePuzzle();                
+            } else if (col.CompareTag("Number"))
+            {
+                if (col.name.Equals("Number1")) buttonNumber = '1';
+                else if (col.name.Equals("Number2")) buttonNumber = '2';
+                else if (col.name.Equals("Number3")) buttonNumber = '3';
+                else if (col.name.Equals("Number4")) buttonNumber = '4';
+                else if (col.name.Equals("Number5")) buttonNumber = '5';
+                else if (col.name.Equals("Number6")) buttonNumber = '6';
+                else if (col.name.Equals("Number7")) buttonNumber = '7';
+                else if (col.name.Equals("Number8")) buttonNumber = '8';
+                else if (col.name.Equals("Number9")) buttonNumber = '9';
+
+                Code(buttonNumber);
             }
         }
-        Debug.DrawRay(ray.origin, ray.direction * interactDistance, Color.green);
+    }
 
+    private void Code(char number)
+    {
+        value += number;
+
+        value = value.Substring(value.Length - 4);
+
+        Debug.Log("Code: " + value);
+
+        if (value == codeValue)
+        {
+            door = GetComponentInChildren<Door>();
+            door.MoveDoor();
+        }
     }
 }

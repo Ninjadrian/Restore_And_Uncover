@@ -27,9 +27,8 @@ public class FirstPersonController : MonoBehaviour
     private LightSwitch lightSwitch;
     private Drawer drawer;
     private Door door;
-    private Strongbox strongbox;
 
-    private bool canMove = true;
+    public GameEvent puzzleEvent;
 
     void Start()
     {
@@ -42,7 +41,7 @@ public class FirstPersonController : MonoBehaviour
 
     void Update()
     {
-        if (canMove)
+        if (GameManager.Instance.gameState == GameState.PLAY)
         {
             HandleMovement();
             HandleMouseLook();
@@ -135,9 +134,7 @@ public class FirstPersonController : MonoBehaviour
             }
             else if (hit.collider.CompareTag("Strongbox"))
             {
-                strongbox = hit.collider.GetComponent<Strongbox>();
-                strongbox.changeCameraTransform();
-                canMove = false;
+                puzzleEvent.Raise();
             } 
             else if (hit.collider.TryGetComponent<ToolPickUp>(out var toolPickUp))
             {

@@ -24,14 +24,14 @@ public class Door : MonoBehaviour
     {
         if (string.IsNullOrEmpty(keyId))
         {
-            StartCoroutine(MoveDoor());
+            MoveDoor();
         }
         else 
         {
             ToolData activeTool = ToolRig.Instance.GetCurrentTool();
             if (activeTool.id == keyId)
             {
-                StartCoroutine(MoveDoor());
+                MoveDoor();
                 keyId = null;
                 InventoryManager.Instance.RemoveTool(activeTool);
                 ToolRig.Instance.Unequip();
@@ -40,7 +40,12 @@ public class Door : MonoBehaviour
         }
     }
 
-    public IEnumerator MoveDoor()
+    public void MoveDoor()
+    {
+        StartCoroutine(DoorAnimation());
+    }
+
+    private IEnumerator DoorAnimation()
     {
         if (audioSource != null)
         {

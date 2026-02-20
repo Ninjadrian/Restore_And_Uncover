@@ -73,13 +73,16 @@ public class MenuManager : MonoBehaviour
 
     public void StartSingleGame()
     {
+        PlayerProfiler.Instance.StartNewGame();
         InventoryManager.Instance.InitializeInventory();
+        GameManager.Instance.Play();
         SceneManager.LoadScene("Level1");
     }
 
     public void ContinueSingleGame()
     {
         PlayerProfiler.Instance.LoadProfile();
+        GameManager.Instance.Play();
         SceneManager.LoadScene("Level1");
     }
 

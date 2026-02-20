@@ -4,7 +4,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public GameState gameState;
+    public GameState CurrentState;
+
+    public GameState gameState;   
 
     private void Awake()
     {
@@ -15,10 +17,8 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
+
         DontDestroyOnLoad(gameObject);
-
-        Play();
-
     }
 
     public void Pause()
@@ -32,6 +32,11 @@ public class GameManager : MonoBehaviour
         gameState = GameState.PLAY;
         Time.timeScale = 1f;
     }
+
+    public void Puzzle()
+    {
+        gameState = GameState.Puzzle;
+    }
 }
 
-public enum GameState { HOME, PLAY, PAUSE, Gameplay, Puzzle, Mobile }
+public enum GameState { HOME, PLAY, PAUSE, Puzzle, Mobile }

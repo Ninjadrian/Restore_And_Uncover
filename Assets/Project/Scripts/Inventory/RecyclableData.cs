@@ -6,4 +6,4 @@ public class RecyclableData : ItemData
     public MaterialType materialType;
 }
 
-public enum MaterialType { Metal, Plastic, Cardboard }
+public enum MaterialType { Metal, Plastic, Cardboard, Electronic }

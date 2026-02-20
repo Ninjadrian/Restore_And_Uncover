@@ -10,6 +10,8 @@ TagManager:
   - Strongbox
   - Item
   - RugPiece
+  - Exit
+  - Number
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - Water
   - UI
   - Cleanable
-  - 
+  - Puzzle
   - 
   - 
   - 
