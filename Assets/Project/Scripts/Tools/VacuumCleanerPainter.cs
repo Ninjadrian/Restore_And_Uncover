@@ -17,16 +17,22 @@ public class VacuumCleanerPainter : MonoBehaviour
     [Range(0f, 1f)] public float hardness = 0.4f;
     [Range(0f, 1f)] public float strength = 0.25f;
 
+    public Shader brushShader;
+
     private Material brushMat;
 
     private static readonly int CenterRadiusId = Shader.PropertyToID("_CenterRadius");
     private static readonly int StrenghtId = Shader.PropertyToID("_Strength");
 
     private void Awake()
-
     {
         if (cam == null) cam = Camera.main;
-        brushMat = new Material(Shader.Find("MyShaders/BrushPaint_V3"));
+        //brushMat = new Material(Shader.Find("MyShaders/BrushPaint_V3"));
+
+        if (brushShader != null)
+        {
+            brushMat = new Material(brushShader);
+        }
     }
 
     private void OnDestroy()
@@ -35,7 +41,6 @@ public class VacuumCleanerPainter : MonoBehaviour
     }
 
     private void Update()
-
     {
         if (!Input.GetMouseButton(0)) return;
 

@@ -5,6 +5,11 @@ public class Lantern : MonoBehaviour
     public Light lanternLight;
     private bool isTurnedOn = false;
 
+    private void Awake()
+    {
+        lanternLight.enabled = false;
+    }
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))

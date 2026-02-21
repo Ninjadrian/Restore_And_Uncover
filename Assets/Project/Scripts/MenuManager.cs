@@ -43,6 +43,15 @@ public class MenuManager : MonoBehaviour
         {
             Pause();
         } 
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            hud.SetActive(false);
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            hud.SetActive(true);
+        }
     }
 
     public void Clear()

@@ -77,10 +77,10 @@ public class FirstPersonController : MonoBehaviour
         }
 
         // Gravedad
-        /*if (controller.isGrounded && verticalVelocity < 0)
+        if (controller.isGrounded && verticalVelocity < 0)
         {
             verticalVelocity = -2f;
-        }*/
+        }
 
 
         // Saltar
