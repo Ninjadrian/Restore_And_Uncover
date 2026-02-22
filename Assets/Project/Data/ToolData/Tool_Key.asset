@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d44df1157f08343a94d0e64651315b, type: 3}
   m_Name: Tool_Key
   m_EditorClassIdentifier: Assembly-CSharp::ToolData
-  id: key
-  toolName: Llave
+  id: key_00
+  toolName: Llave de cuarto principal izquierda
   icon: {fileID: 21300000, guid: bb09c9f41ce93be41a3f31f4540cd92e, type: 3}
-  toolPrefab: {fileID: 0}

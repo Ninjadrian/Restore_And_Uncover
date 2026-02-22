@@ -52,6 +52,11 @@ public class MenuManager : MonoBehaviour
         {
             hud.SetActive(true);
         }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            SceneManager.LoadScene("Level2");
+        }
     }
 
     public void Clear()
@@ -86,6 +91,7 @@ public class MenuManager : MonoBehaviour
         InventoryManager.Instance.InitializeInventory();
         GameManager.Instance.Play();
         SceneManager.LoadScene("Level1");
+        //SceneManager.LoadScene("Level2");
     }
 
     public void ContinueSingleGame()

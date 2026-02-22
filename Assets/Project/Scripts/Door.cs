@@ -28,15 +28,18 @@ public class Door : MonoBehaviour
         }
         else 
         {
-            ToolData activeTool = ToolRig.Instance.GetCurrentTool();
-            if (activeTool.id == keyId)
+            if (ToolRig.Instance.GetCurrentTool() != null)
             {
-                MoveDoor();
-                keyId = null;
-                InventoryManager.Instance.RemoveTool(activeTool);
-                ToolRig.Instance.Unequip();
+                ToolData activeTool = ToolRig.Instance.GetCurrentTool();
+                if (activeTool.id == keyId)
+                {
+                    MoveDoor();
+                    keyId = null;
+                    InventoryManager.Instance.RemoveTool(activeTool);
+                    ToolRig.Instance.Unequip();
+                }
+                else return;
             }
-            else return;
         }
     }
 

@@ -35,8 +35,8 @@ public class FirstPersonController : MonoBehaviour
         controller = GetComponent<CharacterController>();
 
         // Bloquear y esconder el cursor en el centro de la pantalla
-        //Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Update()

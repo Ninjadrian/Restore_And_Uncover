@@ -22951,6 +22951,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoteBasura
       objectReference: {fileID: 0}
+    - target: {fileID: 9192813258602552504, guid: 80b96fe253038524c9f3f6e61baa2747, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24444,46 +24448,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9193534449558737378, guid: 89cfd85444ebc1c44933976567b8fc17, type: 3}
-      propertyPath: m_Name
-      value: KeyCard
-      objectReference: {fileID: 0}
-    - target: {fileID: 9193534449558737378, guid: 89cfd85444ebc1c44933976567b8fc17, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 8157663584432789699, guid: 89cfd85444ebc1c44933976567b8fc17, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 547202483636415830, guid: 89cfd85444ebc1c44933976567b8fc17, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8639809692173196458}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89cfd85444ebc1c44933976567b8fc17, type: 3}
---- !u!1 &8639809692173196456 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9193534449558737378, guid: 89cfd85444ebc1c44933976567b8fc17, type: 3}
-  m_PrefabInstance: {fileID: 8639809692173196455}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8639809692173196457 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 547202483636415830, guid: 89cfd85444ebc1c44933976567b8fc17, type: 3}
-  m_PrefabInstance: {fileID: 8639809692173196455}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8639809692173196458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8639809692173196457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9191f586b378784d8cd4ebe640dd61d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ValidateKeyCard
-  keyCard: {fileID: 8639809692173196456}
 --- !u!1001 &8859953918054231346
 PrefabInstance:
   m_ObjectHideFlags: 0

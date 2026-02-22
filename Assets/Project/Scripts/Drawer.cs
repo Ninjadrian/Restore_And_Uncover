@@ -26,13 +26,11 @@ public class Drawer : MonoBehaviour
 
     public IEnumerator MoveDrawer()
     {
-        if (!isOpen)
+        if (audioSource != null)
         {
-            audioSource.PlayOneShot(sfxCollection.audioClips[0]);
-        }
-        else
-        {
-            audioSource.PlayOneShot(sfxCollection.audioClips[1]);
+            int numberClip = (isOpen ? 1 : 0);
+
+            audioSource.PlayOneShot(sfxCollection.audioClips[numberClip]);
         }
 
         float t = 0;

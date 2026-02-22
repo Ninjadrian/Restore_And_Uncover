@@ -56,13 +56,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: InterruptorTarjeta
       objectReference: {fileID: 0}
+    - target: {fileID: 8416272007918961125, guid: 4132258ada9dd4544b7832a6cb7c2aa4, type: 3}
+      propertyPath: m_Name
+      value: KeyCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416272007918961125, guid: 4132258ada9dd4544b7832a6cb7c2aa4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8821623529969584324, guid: 4132258ada9dd4544b7832a6cb7c2aa4, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4132258ada9dd4544b7832a6cb7c2aa4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1997980870124869579}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4132258ada9dd4544b7832a6cb7c2aa4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2708033400745517595}
   m_SourcePrefab: {fileID: 100100000, guid: 4132258ada9dd4544b7832a6cb7c2aa4, type: 3}
 --- !u!1 &547202483636415830 stripped
 GameObject:
@@ -90,3 +102,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.1, y: 0.120000005, z: 0.01590538}
   m_Center: {x: 0, y: 0.0058104694, z: 0.0045175552}
+--- !u!114 &2708033400745517595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547202483636415830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9191f586b378784d8cd4ebe640dd61d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ValidateKeyCard
+  keyCard: {fileID: 9193534449558737378}
+--- !u!1 &9193534449558737378 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8416272007918961125, guid: 4132258ada9dd4544b7832a6cb7c2aa4, type: 3}
+  m_PrefabInstance: {fileID: 817794842750947335}
+  m_PrefabAsset: {fileID: 0}
