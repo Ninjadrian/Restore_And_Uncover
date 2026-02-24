@@ -14,6 +14,8 @@ public class InventoryManager : MonoBehaviour
 
     public List<RecyclableData> recyclables = new List<RecyclableData>();
 
+    public List<CollectableData> collectables = new List<CollectableData>();
+
     public event Action OnInventoryChanged;
 
     private void Awake()
@@ -78,5 +80,12 @@ public class InventoryManager : MonoBehaviour
     public void AddRecyclable(RecyclableData recyclableData)
     {
         recyclables.Add(recyclableData);
+    }
+
+    //Coleccionables
+    public void AddCollectable(CollectableData collectableData)
+    {
+        collectables.Add(collectableData);
+        OnInventoryChanged?.Invoke();
     }
 }

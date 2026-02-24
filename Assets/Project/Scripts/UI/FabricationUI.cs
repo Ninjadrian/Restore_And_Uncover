@@ -19,14 +19,15 @@ public class FabricationUI : MonoBehaviour
 
     private int indexFabricationItem = 0;
 
-    private bool isPanelActive;
+    private bool isFabricationActive;
 
     private bool canFabricate = false;
     private bool isFabricating = false;
 
     private void Update()
     {
-        if (GameManager.Instance.gameState == GameState.PLAY)
+        if (GameManager.Instance.gameState == GameState.PLAY ||
+            GameManager.Instance.gameState == GameState.Fabricate)
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
@@ -37,13 +38,18 @@ public class FabricationUI : MonoBehaviour
 
     public void Fabrication()
     {        
-        isPanelActive = !isPanelActive;
-        fabricationPanel.SetActive(isPanelActive);  
-        hud.SetActive(!isPanelActive);
+        isFabricationActive = !isFabricationActive;
+        fabricationPanel.SetActive(isFabricationActive);  
+        hud.SetActive(!isFabricationActive);
 
-        if (isPanelActive)
+        if (isFabricationActive)
         {
+            GameManager.Instance.Fabrication();
             FabricationItem(indexFabricationItem);
+        }
+        else
+        {
+            GameManager.Instance.Play();
         }
     }
 

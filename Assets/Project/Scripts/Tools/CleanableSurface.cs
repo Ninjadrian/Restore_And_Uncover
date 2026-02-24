@@ -8,11 +8,13 @@ public class CleanableSurface : MonoBehaviour
     public string surfaceId;
 
     public int maskResolution = 1024;
-    private string maskPropertyName = "_CleanMask"; 
+    private string maskPropertyName = "_CleanMask";
+
+    public float maximumUVCoverage = 100;
 
     //[SerializeField] private RawImage debugRawImage; 
 
-    public float PercentageCleaned {  get; private set; }
+    public float percentageCleaned {  get; private set; }
 
     public RenderTexture MaskRT { get; private set; }
     private Renderer rend;
@@ -71,10 +73,17 @@ public class CleanableSurface : MonoBehaviour
 
         if (data.Length > 0)
         {
-            float averageValue = data[0] / 255f;
+            float averageValue = data[0] / 255f * 100f;
 
-            PercentageCleaned = averageValue * 100f;
+            percentageCleaned = Mathf.Clamp01(averageValue/ maximumUVCoverage);
 
+            Debug.Log("Porcentaje: " + percentageCleaned);
+
+            if (percentageCleaned > 0.96f) 
+            {
+                LevelCompletionManager.Instance.TryCompleteLevel();
+                Destroy(this.gameObject);
+            }
         }
     }
 

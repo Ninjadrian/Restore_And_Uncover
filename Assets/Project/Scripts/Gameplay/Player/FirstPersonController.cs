@@ -24,19 +24,15 @@ public class FirstPersonController : MonoBehaviour
     public float interactDistance = 3f;
     public LayerMask interactMask;
 
-    private LightSwitch lightSwitch;
     private Drawer drawer;
     private Door door;
+    private HatchDoor hatchDoor;
 
     public GameEvent puzzleEvent;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
-
-        // Bloquear y esconder el cursor en el centro de la pantalla
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
     }
 
     void Update()
@@ -58,6 +54,7 @@ public class FirstPersonController : MonoBehaviour
         }
     }
 
+    //Movimiento del personaje
     void HandleMovement()
     {
         float inputX = Input.GetAxis("Horizontal");
@@ -83,8 +80,7 @@ public class FirstPersonController : MonoBehaviour
         }
 
 
-        // Saltar
-
+        // Salto
         if (Input.GetButtonDown("Jump"))
         {
             verticalVelocity = Mathf.Sqrt(jumpHeight * -2f * gravity);
@@ -94,6 +90,7 @@ public class FirstPersonController : MonoBehaviour
         controller.Move(Vector3.up * verticalVelocity * Time.deltaTime);
     }
 
+    //Rotación de la cámara
     void HandleMouseLook()
     {
         // Movimiento del ratón
@@ -109,6 +106,7 @@ public class FirstPersonController : MonoBehaviour
         transform.Rotate(Vector3.up * mouseX);
     }
 
+    //Interacciones con otros elementos
     void Interact()
     {
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
@@ -117,9 +115,8 @@ public class FirstPersonController : MonoBehaviour
         {
             //Debug.Log("El objeto es: " + hit.collider.name);
 
-            if (hit.collider.CompareTag("Switch"))
+            if (hit.collider.TryGetComponent<LightSwitch>(out var lightSwitch))
             {
-                lightSwitch = hit.collider.GetComponent<LightSwitch>();
                 lightSwitch.SwitchLights();
             }
             else if (hit.collider.CompareTag("Drawer"))
@@ -132,10 +129,15 @@ public class FirstPersonController : MonoBehaviour
                 door = hit.collider.GetComponent<Door>();
                 door.OpenDoor();
             }
-            else if (hit.collider.CompareTag("Strongbox"))
+            else if (hit.collider.CompareTag("HatchDoor"))
+            {
+                hatchDoor = hit.collider.GetComponent<HatchDoor>();
+                hatchDoor.TryOpenHatchDoor();
+            }
+            else if (hit.collider.CompareTag("Puzzle"))
             {
                 puzzleEvent.Raise();
-            } 
+            }
             else if (hit.collider.TryGetComponent<ToolPickUp>(out var toolPickUp))
             {
                 toolPickUp.PickUp();
@@ -144,12 +146,18 @@ public class FirstPersonController : MonoBehaviour
             {
                 recyclablePickUp.PickUp();
             }
-            else if (hit.collider.TryGetComponent<ValidateKeyCard>(out var keyCard)){
+            else if (hit.collider.TryGetComponent<CollectablePickUp>(out var collectablePickUp))
+            {
+                collectablePickUp.PickUp();
+            }
+            else if (hit.collider.TryGetComponent<ValidateKeyCard>(out var keyCard))
+            {
                 keyCard.ActiveSwitchCard();
             }
         }
     }
 
+    //Agacharse
     void Crouch()
     {
         if (!isCrouch)

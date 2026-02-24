@@ -12,6 +12,8 @@ TagManager:
   - RugPiece
   - Exit
   - Number
+  - Puzzle
+  - HatchDoor
   layers:
   - Default
   - TransparentFX

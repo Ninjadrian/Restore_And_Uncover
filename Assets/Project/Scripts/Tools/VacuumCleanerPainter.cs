@@ -27,7 +27,6 @@ public class VacuumCleanerPainter : MonoBehaviour
     private void Awake()
     {
         if (cam == null) cam = Camera.main;
-        //brushMat = new Material(Shader.Find("MyShaders/BrushPaint_V3"));
 
         if (brushShader != null)
         {
@@ -62,7 +61,7 @@ public class VacuumCleanerPainter : MonoBehaviour
 
         surfaceText.text = surface.surfaceName;
 
-        imageSlider.fillAmount = Mathf.Lerp(imageSlider.fillAmount, surface.PercentageCleaned / 20f, Time.deltaTime * 5f);
+        imageSlider.fillAmount = Mathf.Lerp(imageSlider.fillAmount, surface.percentageCleaned, Time.deltaTime * 5f);
     }
 
     private void Paint(RenderTexture maskRT, Vector2 uv)

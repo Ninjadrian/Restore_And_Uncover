@@ -12,10 +12,13 @@ public class Lantern : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (GameManager.Instance.gameState == GameState.PLAY)
         {
-            SwitchLantern();
-        }
+            if (Input.GetMouseButtonDown(0))
+            {
+                SwitchLantern();
+            }
+        }    
     }
 
     private void SwitchLantern()
