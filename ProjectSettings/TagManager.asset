@@ -8,12 +8,14 @@ TagManager:
   - Drawer
   - Door
   - Strongbox
-  - Item
   - RugPiece
   - Exit
   - Number
   - Puzzle
   - HatchDoor
+  - Ladder
+  - Recyclable
+  - Vacuum
   layers:
   - Default
   - TransparentFX

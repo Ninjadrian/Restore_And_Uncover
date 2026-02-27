@@ -4,6 +4,14 @@ public class ValidateKeyCard : MonoBehaviour
 {
     public GameObject keyCard;
 
+    private void Awake()
+    {
+        if(PowerSytem.HasPower == true)
+        {
+            keyCard.SetActive(true);
+        }
+    }
+
     public void ActiveSwitchCard()
     {
         ToolData activeTool = ToolRig.Instance.GetCurrentTool();

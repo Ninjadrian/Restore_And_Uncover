@@ -16,6 +16,7 @@ MonoBehaviour:
   toolName: Scratch
   icon: {fileID: 21300000, guid: e2aa98cd195a5474daa0760607aa54b4, type: 3}
   resultTool: {fileID: 11400000, guid: efc12015c0f76b14d8d0f0b82224d7c3, type: 2}
-  metalAmount: 3
-  plasticAmount: 3
+  metalAmount: 8
+  plasticAmount: 4
   cardboardAmount: 2
+  elecronicAmount: 0

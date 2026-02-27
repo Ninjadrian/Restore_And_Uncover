@@ -15,4 +15,3 @@ MonoBehaviour:
   id: vacuum
   toolName: Aspiradora
   icon: {fileID: 21300000, guid: 5f60c8fcae03dff41b7c1e9075d02560, type: 3}
-  toolPrefab: {fileID: 0}

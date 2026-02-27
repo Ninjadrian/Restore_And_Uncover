@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +21,8 @@ public class VacuumCleanerPainter : MonoBehaviour
     public Shader brushShader;
 
     private Material brushMat;
+
+    public ParticleSystem glitterEffect;
 
     private static readonly int CenterRadiusId = Shader.PropertyToID("_CenterRadius");
     private static readonly int StrenghtId = Shader.PropertyToID("_Strength");
@@ -61,7 +64,14 @@ public class VacuumCleanerPainter : MonoBehaviour
 
         surfaceText.text = surface.surfaceName;
 
-        imageSlider.fillAmount = Mathf.Lerp(imageSlider.fillAmount, surface.percentageCleaned, Time.deltaTime * 5f);
+        if (surface.percentageCleaned < .96f)
+        {
+            imageSlider.fillAmount = Mathf.Lerp(imageSlider.fillAmount, surface.percentageCleaned, Time.deltaTime * 5f);
+        } else if (surface.percentageCleaned >= .96f)
+        {           
+            imageSlider.fillAmount = 1;
+            glitterEffect.Play();
+        }
     }
 
     private void Paint(RenderTexture maskRT, Vector2 uv)

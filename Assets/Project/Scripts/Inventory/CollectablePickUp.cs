@@ -4,8 +4,6 @@ public class CollectablePickUp : MonoBehaviour
 {
     public CollectableData collectableData;
 
-    public GameEvent objectiveCompleted;
-
     private void Awake()
     {
         var idComp = GetComponent<UniquePickupId>();
@@ -27,7 +25,6 @@ public class CollectablePickUp : MonoBehaviour
         }
 
         LevelCompletionManager.Instance.CheckRequiredItem(idComp.id);
-
         Destroy(gameObject);
     }
 }

@@ -12,6 +12,7 @@ public class MenuManager : MonoBehaviour
 
     public GameObject audioPanel;
     public GameObject videoPanel;
+    public GameObject controlPanel;
 
     public GameObject hud;
 
@@ -91,14 +92,15 @@ public class MenuManager : MonoBehaviour
         InventoryManager.Instance.InitializeInventory();
         GameManager.Instance.Play();
         SceneManager.LoadScene("Level1");
-        //SceneManager.LoadScene("Level2");
     }
 
     public void ContinueSingleGame()
     {
         PlayerProfiler.Instance.LoadProfile();
+        
+        string sceneName = PlayerProfiler.Instance.CurrentLevelConfig.sceneName;
         GameManager.Instance.Play();
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene(sceneName);
     }
 
     public void Cooperative()
@@ -110,6 +112,8 @@ public class MenuManager : MonoBehaviour
     {
         menuPanel.SetActive(false);
         audioPanel.SetActive(false);
+        videoPanel.SetActive(false);
+        controlPanel.SetActive(false);
         optionsPanel.SetActive(true);
     }
 
@@ -123,6 +127,12 @@ public class MenuManager : MonoBehaviour
     {
         optionsPanel.SetActive(false);
         videoPanel.SetActive(true);
+    }
+
+    public void ControlOptions()
+    {
+        optionsPanel.SetActive(false);
+        controlPanel.SetActive(true);
     }
 
     public void Collection()

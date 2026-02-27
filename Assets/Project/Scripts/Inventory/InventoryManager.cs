@@ -36,11 +36,6 @@ public class InventoryManager : MonoBehaviour
         //Herramientas
         inventoryTools.Clear();
 
-        //foreach (ToolData tool in startingTools)
-        //{
-        //    inventory.Add(tool);
-        //}
-
         inventoryTools.AddRange(startingTools);
 
         //Planos
@@ -86,6 +81,12 @@ public class InventoryManager : MonoBehaviour
     public void AddCollectable(CollectableData collectableData)
     {
         collectables.Add(collectableData);
+        OnInventoryChanged?.Invoke();
+    }
+
+    public void AddBlueprint(BlueprintData blueprintData)
+    {
+        unlockedBlueprints.Add(blueprintData);
         OnInventoryChanged?.Invoke();
     }
 }

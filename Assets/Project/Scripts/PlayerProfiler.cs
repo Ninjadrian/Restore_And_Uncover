@@ -6,21 +6,35 @@ public class PlayerProfiler : MonoBehaviour
 {
     public static PlayerProfiler Instance;
 
+    public LevelDatabase levelDatabase;
+    public LevelConfigSO CurrentLevelConfig { get; private set; }
+
     private HashSet<string> collectedSet = new HashSet<string>();
+
+    private HashSet<string> cleanedSurfaceSet = new HashSet<string>();
+
+    private HashSet<string> seenMessagesSet = new HashSet<string>();
 
     private static string fileName = "player_profile.json";
 
     [SerializeField]
     public class PlayerData
     {
-        public int level = 0;
+        public string levelId = "level_01";
         public int time = 0;
         public int day = 0;
 
+        //Herramientas del inventario
         public List<string> ownedTools = new List<string>();
 
         //Objetos ya recogidos
-        public List<string> collectedPickups = new List<string>();  
+        public List<string> collectedPickups = new List<string>();
+
+        //Superficies limpias
+        public List<string> cleanedSurfaces = new List<string>();
+
+        //Mensajes
+        public List<string> seenMessages = new List<string>();
     }
 
     public PlayerData data = new PlayerData();
@@ -32,7 +46,7 @@ public class PlayerProfiler : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        
+
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
@@ -43,7 +57,7 @@ public class PlayerProfiler : MonoBehaviour
     }
 
     public void SaveProfile() {
-        
+
         //Limpiamos la lista
         data.ownedTools.Clear();
 
@@ -55,6 +69,9 @@ public class PlayerProfiler : MonoBehaviour
 
         data.collectedPickups.Clear();
         data.collectedPickups.AddRange(collectedSet);
+
+        data.cleanedSurfaces.Clear();
+        data.cleanedSurfaces.AddRange(cleanedSurfaceSet);
 
         //Guardamos máscaras de limpieza
         foreach (var surface in FindObjectsByType<CleanableSurface>(FindObjectsSortMode.None))
@@ -70,7 +87,6 @@ public class PlayerProfiler : MonoBehaviour
 
         if (!File.Exists(path))
         {
-            SaveProfile();
             return;
         }
 
@@ -78,6 +94,12 @@ public class PlayerProfiler : MonoBehaviour
         data = JsonUtility.FromJson<PlayerData>(json);
 
         collectedSet = new HashSet<string>(data.collectedPickups);
+
+        cleanedSurfaceSet = new HashSet<string>(data.cleanedSurfaces);
+
+        seenMessagesSet = new HashSet<string>(data.seenMessages);
+
+        CurrentLevelConfig = levelDatabase.Get(data.levelId);
 
         RestoreInventory();
     }
@@ -109,11 +131,15 @@ public class PlayerProfiler : MonoBehaviour
     public void StartNewGame()
     {
         data = new PlayerData();
+
         collectedSet.Clear();
+        cleanedSurfaceSet.Clear();
+        seenMessagesSet.Clear();
+        data.seenMessages.Clear();
 
         DeleteAllCleanMasks();
 
-        SaveProfile();
+        ApplylevelConfigSO("level_01");
     }
 
     private void DeleteAllCleanMasks()
@@ -123,5 +149,47 @@ public class PlayerProfiler : MonoBehaviour
 
         foreach (var f in files)
             File.Delete(f);
+    }
+
+    public void MarkSurfaceCleaned(string surfaceId)
+    {
+        if (string.IsNullOrEmpty(surfaceId)) return;
+        cleanedSurfaceSet.Add(surfaceId);
+    }
+
+    public bool IsSurfaceCleaned(string surfaceId)
+    {
+        return !string.IsNullOrEmpty(surfaceId) && cleanedSurfaceSet.Contains(surfaceId);
+    }
+
+    public void ApplylevelConfigSO(string levelId)
+    {
+        CurrentLevelConfig = levelDatabase.Get(levelId);
+        if (CurrentLevelConfig == null) return;
+
+        data.levelId = CurrentLevelConfig.levelId;
+        data.day = CurrentLevelConfig.startingDay;
+        data.time = CurrentLevelConfig.startingTime;
+
+        PowerSytem.SetPower(CurrentLevelConfig.powerStartsOn);
+
+        SaveProfile();
+    }
+
+    public bool HasSeenMessage(string messageId)
+    {
+        return !string.IsNullOrEmpty(messageId) && seenMessagesSet.Contains(messageId);
+    }
+
+    public void MarkMessageSeen(string messageId)
+    {
+        if (string.IsNullOrEmpty(messageId)) return;
+
+        if (seenMessagesSet.Add(messageId))
+        {
+            data.seenMessages.Clear();
+            data.seenMessages.AddRange(seenMessagesSet);
+            SaveProfile();
+        }
     }
 }

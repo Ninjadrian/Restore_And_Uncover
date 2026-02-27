@@ -22,6 +22,13 @@ public class CleanableSurface : MonoBehaviour
 
     private void Awake()
     {
+        //Si la superficie ya fue limpiada no debe aparecer
+        if (PlayerProfiler.Instance != null && PlayerProfiler.Instance.IsSurfaceCleaned(surfaceId))
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         rend = GetComponent<Renderer>();
         maskPropId = Shader.PropertyToID(maskPropertyName);
 
@@ -77,12 +84,16 @@ public class CleanableSurface : MonoBehaviour
 
             percentageCleaned = Mathf.Clamp01(averageValue/ maximumUVCoverage);
 
-            Debug.Log("Porcentaje: " + percentageCleaned);
+            Debug.Log("Porcentaje de "+surfaceName + ": " + percentageCleaned);
 
             if (percentageCleaned > 0.96f) 
             {
+                percentageCleaned = 1;
+
+                PlayerProfiler.Instance.MarkSurfaceCleaned(surfaceId);
+
                 LevelCompletionManager.Instance.TryCompleteLevel();
-                Destroy(this.gameObject);
+                Destroy(gameObject);
             }
         }
     }

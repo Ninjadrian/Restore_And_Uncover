@@ -1,11 +1,15 @@
 using UnityEngine;
-using System.Collections.Generic;
-
+using UnityEngine.SceneManagement;
 public class LevelCompletionManager : MonoBehaviour
 {
     public static LevelCompletionManager Instance;
 
+    public GameObject levelCompletedPanel;
+    public GameObject hud;
+
     [SerializeField] private string requiredItemId;
+
+    [SerializeField] private string nextLevelId;
 
     private bool hasItem;
     private bool levelCompleted;
@@ -15,7 +19,6 @@ public class LevelCompletionManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -30,6 +33,10 @@ public class LevelCompletionManager : MonoBehaviour
         bool recyclablesDone = CheckRecyclables();
         bool surfacesDone = CheckSurfaces();
 
+        if(hasItem) Debug.Log("Objetivo de item completado");
+        if (recyclablesDone) Debug.Log("Se recogieron todos los reciclables");
+        if (surfacesDone) Debug.Log("Se limpiaron todas las superficies");
+
         if (hasItem && recyclablesDone && surfacesDone)
         {
             CompleteLevel();
@@ -40,15 +47,14 @@ public class LevelCompletionManager : MonoBehaviour
     {
         if (itemID == requiredItemId)
         {
-            //Debug.Log("Objetivo de item completado");
-            TryCompleteLevel();
             hasItem = true;
+            TryCompleteLevel();
         }
     }
 
     private bool CheckRecyclables()
     {
-        return FindObjectsByType<RecyclablePickUp>(FindObjectsSortMode.None).Length == 0;
+        return FindObjectsByType<RecyclablePickUp>(FindObjectsSortMode.None).Length <= 1;
     }
 
     private bool CheckSurfaces()
@@ -58,7 +64,19 @@ public class LevelCompletionManager : MonoBehaviour
 
     private void CompleteLevel()
     {
+        levelCompletedPanel.SetActive(true);
+        hud.SetActive(false);
         levelCompleted = true;
-        Debug.Log("Nivel Completado");
+
+        GameManager.Instance.Pause();
+        if (string.IsNullOrEmpty(nextLevelId)) return;
+
+        PlayerProfiler.Instance.ApplylevelConfigSO(nextLevelId);
+    }
+
+    public void SecondLevel()
+    {
+        GameManager.Instance.Play();
+        SceneManager.LoadScene("Level2");
     }
 }
