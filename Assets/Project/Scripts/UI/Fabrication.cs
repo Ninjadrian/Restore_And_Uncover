@@ -85,6 +85,10 @@ public class Fabrication : MonoBehaviour
         {
             canFabricate = true;
         }
+        else
+        {
+            canFabricate = false;
+        }
     }
 
     public void FabricateButton()

@@ -53,7 +53,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DustMask:
-        m_Texture: {fileID: 2800000, guid: d24dd9adffc5eb0468e808dc96d9bdc5, type: 3}
+        m_Texture: {fileID: 2800000, guid: af552dde09459ec40829f4f78556f98b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -133,7 +133,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorA: {r: 0.47798735, g: 0.4193662, b: 0.4193662, a: 1}
+    - _ColorA: {r: 0.54088044, g: 0.54088044, b: 0.54088044, a: 1}
     - _ColorB: {r: 0.2697987, g: 1, b: 0, a: 1}
     - _DustTiling: {r: 1, g: 1, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

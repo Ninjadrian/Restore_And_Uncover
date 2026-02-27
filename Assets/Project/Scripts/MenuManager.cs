@@ -44,20 +44,6 @@ public class MenuManager : MonoBehaviour
         {
             Pause();
         } 
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            hud.SetActive(false);
-        }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            hud.SetActive(true);
-        }
-
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            SceneManager.LoadScene("Level2");
-        }
     }
 
     public void Clear()
@@ -67,6 +53,7 @@ public class MenuManager : MonoBehaviour
         singlePlayerPanel.SetActive(false);
         collectionPanel.SetActive(false);
         creditsPanel.SetActive(false);
+        controlPanel.SetActive(false);
 
         audioPanel.SetActive(false);
         videoPanel.SetActive(false);

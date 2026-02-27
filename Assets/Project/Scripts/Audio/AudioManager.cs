@@ -4,10 +4,8 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
     public AudioSource musicSource;
-    //public AudioSource sfxSource;
 
     public AudioCollectionSO musicCollection;
-    //public AudioCollectionSO sfxCollection;
     public AudioMixer audioMixer;
 
     public static AudioManager Instance;
@@ -28,20 +26,32 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        PlayMusic();
+        PlayCurrentTrack();
     }
 
-    public void PlayMusic()
+    private void Update()
+    {
+        if (!musicSource.isPlaying)
+            PlayNextTrack();
+    }
+
+    private void PlayCurrentTrack()
     {
         musicSource.clip = musicCollection.audioClips[intensityIndex];
         musicSource.Play();
-        if (intensityIndex < musicCollection.audioClips.Length - 1)
+    }
+
+    private void PlayNextTrack()
+    {
+        intensityIndex++;
+
+        if (intensityIndex >= musicCollection.audioClips.Length)
         {
-            intensityIndex++;
+            intensityIndex = 0;
         }
+        PlayCurrentTrack();
     }
 
     public void MusicVolume(float volume)

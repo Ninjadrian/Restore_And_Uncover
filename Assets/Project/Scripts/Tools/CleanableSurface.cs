@@ -20,6 +20,8 @@ public class CleanableSurface : MonoBehaviour
     private Renderer rend;
     private int maskPropId;
 
+    private bool isDestroyed;
+
     private void Awake()
     {
         //Si la superficie ya fue limpiada no debe aparecer
@@ -61,7 +63,21 @@ public class CleanableSurface : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (MaskRT != null) MaskRT.Release();
+        isDestroyed = true;
+
+        if (MaskRT == null) return;
+
+        if (RenderTexture.active == MaskRT)
+            RenderTexture.active = null;
+
+        //Libera recursos de GPU
+        MaskRT.Release();
+
+        //Destruye el objeto RT
+        Destroy(MaskRT);
+        MaskRT = null;
+
+        LevelCompletionManager.Instance.TryCompleteLevel();
     }
 
     public void CalculateProgress()
@@ -75,6 +91,7 @@ public class CleanableSurface : MonoBehaviour
 
     void OnCompleteReadback(AsyncGPUReadbackRequest request)
     {
+        if (isDestroyed) return;
         if (request.hasError) return;
         var data = request.GetData<byte>();
 
@@ -88,11 +105,12 @@ public class CleanableSurface : MonoBehaviour
 
             if (percentageCleaned > 0.96f) 
             {
+                
                 percentageCleaned = 1;
 
                 PlayerProfiler.Instance.MarkSurfaceCleaned(surfaceId);
 
-                LevelCompletionManager.Instance.TryCompleteLevel();
+
                 Destroy(gameObject);
             }
         }
