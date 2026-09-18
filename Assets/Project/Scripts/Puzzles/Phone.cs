@@ -25,7 +25,7 @@ public class Phone : MonoBehaviour
     public LayerMask interactMask;
 
     [SerializeField] private string codeValue = "219152785";
-    private string value = "000000000";
+    private string value = "";
     private char buttonNumber;
 
     [SerializeField] private GameObject blueprint;
@@ -119,7 +119,10 @@ public class Phone : MonoBehaviour
     {
         value += number;
 
-        value = value.Substring(value.Length - 9);
+        if (value.Length > codeValue.Length)
+        {
+            value = value.Substring(value.Length - codeValue.Length);
+        }
 
         Debug.Log("Code: " + value);
 
