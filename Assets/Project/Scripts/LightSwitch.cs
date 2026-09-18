@@ -10,14 +10,14 @@ public class LightSwitch : MonoBehaviour
 
     private void OnEnable()
     {
-        PowerSytem.OnPowerChanged += HandlePowerChanged;
+        PowerSystem.OnPowerChanged += HandlePowerChanged;
 
-        hasPower = PowerSytem.HasPower;
+        hasPower = PowerSystem.HasPower;
     }
 
     private void OnDisable()
     {
-        PowerSytem.OnPowerChanged -= HandlePowerChanged;
+        PowerSystem.OnPowerChanged -= HandlePowerChanged;
     }
 
     private void HandlePowerChanged(bool value)

@@ -8,5 +8,5 @@ public class BlueprintData : ItemData
     public int metalAmount;
     public int plasticAmount;
     public int cardboardAmount;
-    public int elecronicAmount;
+    public int electronicAmount;
 }

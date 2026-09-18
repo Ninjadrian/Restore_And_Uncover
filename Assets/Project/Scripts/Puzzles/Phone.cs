@@ -24,7 +24,7 @@ public class Phone : MonoBehaviour
     public float interactDistance = 0.5f;
     public LayerMask interactMask;
 
-    [SerializeField] private string codeValue = "7829";
+    [SerializeField] private string codeValue = "219152785";
     private string value = "000000000";
     private char buttonNumber;
 
@@ -67,7 +67,7 @@ public class Phone : MonoBehaviour
         counterDayPanel.SetActive(true);
         toolPanel.SetActive(true);
 
-        GameManager.Instance.gameState = GameState.PLAY;
+        GameManager.Instance.gameState = GameState.Play;
     }
 
     private void HandleMouseLook()

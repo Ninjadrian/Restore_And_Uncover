@@ -74,7 +74,7 @@ public class Strongbox : MonoBehaviour
         counterDayPanel.SetActive(true);
         toolPanel.SetActive(true);
 
-        GameManager.Instance.gameState = GameState.PLAY;
+        GameManager.Instance.gameState = GameState.Play;
     }
 
     private void HandleMouseLook()

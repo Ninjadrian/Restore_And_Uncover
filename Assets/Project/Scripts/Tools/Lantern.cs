@@ -12,7 +12,7 @@ public class Lantern : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Instance.gameState == GameState.PLAY)
+        if (GameManager.Instance.gameState == GameState.Play)
         {
             if (Input.GetMouseButtonDown(0))
             {

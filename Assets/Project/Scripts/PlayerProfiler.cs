@@ -17,7 +17,7 @@ public class PlayerProfiler : MonoBehaviour
 
     private static string fileName = "player_profile.json";
 
-    [SerializeField]
+    //[SerializeField]
     public class PlayerData
     {
         public string levelId = "level_01";
@@ -171,7 +171,7 @@ public class PlayerProfiler : MonoBehaviour
         data.day = CurrentLevelConfig.startingDay;
         data.time = CurrentLevelConfig.startingTime;
 
-        PowerSytem.SetPower(CurrentLevelConfig.powerStartsOn);
+        PowerSystem.SetPower(CurrentLevelConfig.powerStartsOn);
 
         SaveProfile();
     }

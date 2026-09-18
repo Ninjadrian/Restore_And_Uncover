@@ -36,7 +36,7 @@ public class Mobile : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Instance.gameState == GameState.PLAY)
+        if (GameManager.Instance.gameState == GameState.Play)
         {
             if (Input.GetKeyDown(KeyCode.Z))
             {

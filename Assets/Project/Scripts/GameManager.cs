@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
-        gameState = GameState.PAUSE;
+        gameState = GameState.Pause;
         Time.timeScale = 0f;
 
         UnlockCursor();
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     public void Play()
     {
-        gameState = GameState.PLAY;
+        gameState = GameState.Play;
         Time.timeScale = 1f;
 
         // Bloquear y esconder el cursor en el centro de la pantalla
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
 
     public void LevelCompleted()
     {
-        Debug.Log("Nivel Completdo");
+        Debug.Log("Nivel Completado");
     }
 
     public void UnlockCursor()
@@ -63,4 +63,4 @@ public class GameManager : MonoBehaviour
     }
 }
 
-public enum GameState { HOME, PLAY, PAUSE, Puzzle, Mobile, Fabricate, Inventory }
+public enum GameState { Home, Play, Pause, Puzzle, Mobile, Fabricate, Inventory }

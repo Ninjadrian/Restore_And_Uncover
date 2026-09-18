@@ -6,7 +6,7 @@ public class ValidateKeyCard : MonoBehaviour
 
     private void Awake()
     {
-        if(PowerSytem.HasPower == true)
+        if(PowerSystem.HasPower == true)
         {
             keyCard.SetActive(true);
         }
@@ -16,10 +16,10 @@ public class ValidateKeyCard : MonoBehaviour
     {
         ToolData activeTool = ToolRig.Instance.GetCurrentTool();
 
-        if (activeTool.id == "keyCard")
+        if (activeTool != null && activeTool.id == "keyCard")
         {
             keyCard.SetActive(true);
-            PowerSytem.SetPower(true);
+            PowerSystem.SetPower(true);
             InventoryManager.Instance.RemoveTool(activeTool);
             ToolRig.Instance.Unequip();
         }

@@ -1,6 +1,6 @@
 using System;
 
-public static class PowerSytem
+public static class PowerSystem
 {
     public static bool HasPower {  get; private set; } = false;
 

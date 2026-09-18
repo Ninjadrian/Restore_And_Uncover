@@ -41,7 +41,7 @@ public class FirstPersonController : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.Instance.gameState == GameState.PLAY)
+        if (GameManager.Instance.gameState == GameState.Play)
         {
             HandleMovement();
             HandleMouseLook();

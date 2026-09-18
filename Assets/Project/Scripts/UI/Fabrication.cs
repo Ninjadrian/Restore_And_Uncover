@@ -26,7 +26,7 @@ public class Fabrication : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Instance.gameState == GameState.PLAY ||
+        if (GameManager.Instance.gameState == GameState.Play ||
             GameManager.Instance.gameState == GameState.Fabricate)
         {
             if (Input.GetKeyDown(KeyCode.Q))
@@ -68,7 +68,12 @@ public class Fabrication : MonoBehaviour
             metal = metal - item.metalAmount;
             plastic = plastic - item.plasticAmount;
             cardboard = cardboard - item.cardboardAmount;
-            electronic = electronic - item.elecronicAmount;
+            electronic = electronic - item.electronicAmount;
+
+            InventoryManager.Instance.RemoveRecyclables(MaterialType.Metal, item.metalAmount);
+            InventoryManager.Instance.RemoveRecyclables(MaterialType.Plastic, item.plasticAmount);
+            InventoryManager.Instance.RemoveRecyclables(MaterialType.Cardboard, item.cardboardAmount);
+            InventoryManager.Instance.RemoveRecyclables(MaterialType.Electronic, item.electronicAmount);
 
             InventoryManager.Instance.AddTool(item.resultTool);
         }
@@ -76,12 +81,12 @@ public class Fabrication : MonoBehaviour
         metalAmount.text = metal + "/" + item.metalAmount.ToString();
         plasticAmount.text = plastic + "/" + item.plasticAmount.ToString();
         cardboardAmount.text = cardboard + "/" + item.cardboardAmount.ToString();
-        electronicAmount.text = electronic + "/" + item.elecronicAmount.ToString();
+        electronicAmount.text = electronic + "/" + item.electronicAmount.ToString();
 
         result.sprite = item.resultTool.icon;
 
         if (metal >= item.metalAmount && plastic >= item.plasticAmount && 
-            cardboard >= item.cardboardAmount && electronic >= item.elecronicAmount) 
+            cardboard >= item.cardboardAmount && electronic >= item.electronicAmount) 
         {
             canFabricate = true;
         }
@@ -95,7 +100,7 @@ public class Fabrication : MonoBehaviour
     {
         if (canFabricate) 
         {
-            isFabricating = true;
+            isFabricating = true;            
             FabricationItem(indexFabricationItem);
             canFabricate = false;
         }

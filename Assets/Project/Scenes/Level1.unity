@@ -2046,6 +2046,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &107052755
 MeshFilter:
@@ -4091,6 +4092,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &192275893
 MeshFilter:
@@ -7457,7 +7459,7 @@ GameObject:
   m_Component:
   - component: {fileID: 433623078}
   m_Layer: 0
-  m_Name: Pasillo
+  m_Name: Aisle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7827,6 +7829,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &462015607
 MeshFilter:
@@ -10050,7 +10053,7 @@ GameObject:
   m_Component:
   - component: {fileID: 572645390}
   m_Layer: 0
-  m_Name: Reciclables
+  m_Name: Recyclables
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16142,6 +16145,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &903269200
 MeshFilter:
@@ -16678,6 +16682,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &968855495
 MeshFilter:
@@ -17334,6 +17339,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &984187743
 MeshFilter:
@@ -18181,6 +18187,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1042875657
 MeshFilter:
@@ -19828,6 +19835,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1133714891
 MeshFilter:
@@ -20153,6 +20161,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1186881587
 MeshFilter:
@@ -20250,6 +20259,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1189944968
 MeshFilter:
@@ -22684,6 +22694,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1350108512
 MeshFilter:
@@ -23774,6 +23785,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1418979096
 MeshFilter:
@@ -25106,6 +25118,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1514541480
 MeshFilter:
@@ -30552,6 +30565,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1884276836
 MeshFilter:
@@ -36438,7 +36452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 288632471010719238, guid: 35be0387d5fac664296801df78fe2cc7, type: 3}
       propertyPath: m_Name
-      value: Oficina
+      value: Office
       objectReference: {fileID: 0}
     - target: {fileID: 1101900972232076476, guid: 35be0387d5fac664296801df78fe2cc7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -38094,6 +38108,6 @@ SceneRoots:
   - {fileID: 393461847}
   - {fileID: 980063895}
   - {fileID: 1730558525}
-  - {fileID: 1626408821}
   - {fileID: 1316883345}
   - {fileID: 572645390}
+  - {fileID: 1626408821}

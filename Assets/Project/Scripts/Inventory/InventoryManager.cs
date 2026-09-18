@@ -77,6 +77,19 @@ public class InventoryManager : MonoBehaviour
         recyclables.Add(recyclableData);
     }
 
+    public void RemoveRecyclables(MaterialType type, int amount)
+    {
+        int removed = 0;
+        for (int i = recyclables.Count - 1; i >= 0 && removed < amount; i--) 
+        {
+            if (recyclables[i].materialType == type) 
+            {
+                recyclables.RemoveAt(i);
+                removed++;
+            }
+        }
+    }
+
     //Coleccionables
     public void AddCollectable(CollectableData collectableData)
     {
