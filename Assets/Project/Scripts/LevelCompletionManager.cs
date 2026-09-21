@@ -74,9 +74,15 @@ public class LevelCompletionManager : MonoBehaviour
         PlayerProfiler.Instance.ApplylevelConfigSO(nextLevelId);
     }
 
-    public void SecondLevel()
+    public void LoadNextLevel()
     {
         GameManager.Instance.Play();
-        SceneManager.LoadScene("Level2");
+
+        LevelConfigSO levelConfig = PlayerProfiler.Instance.CurrentLevelConfig;
+
+        if (levelConfig == null || string.IsNullOrEmpty(levelConfig.sceneName))
+            return;
+
+        SceneManager.LoadScene(levelConfig.sceneName);
     }
 }
