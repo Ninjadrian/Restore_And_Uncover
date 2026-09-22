@@ -22,7 +22,6 @@ public class Fabrication : MonoBehaviour
     private bool isFabricationActive;
 
     private bool canFabricate = false;
-    private bool isFabricating = false;
 
     private void Update()
     {
@@ -63,21 +62,6 @@ public class Fabrication : MonoBehaviour
         int cardboard = InventoryManager.Instance.GetMaterialCount(MaterialType.Cardboard);
         int electronic = InventoryManager.Instance.GetMaterialCount(MaterialType.Electronic);
 
-        if (isFabricating)
-        {
-            metal = metal - item.metalAmount;
-            plastic = plastic - item.plasticAmount;
-            cardboard = cardboard - item.cardboardAmount;
-            electronic = electronic - item.electronicAmount;
-
-            InventoryManager.Instance.RemoveRecyclables(MaterialType.Metal, item.metalAmount);
-            InventoryManager.Instance.RemoveRecyclables(MaterialType.Plastic, item.plasticAmount);
-            InventoryManager.Instance.RemoveRecyclables(MaterialType.Cardboard, item.cardboardAmount);
-            InventoryManager.Instance.RemoveRecyclables(MaterialType.Electronic, item.electronicAmount);
-
-            InventoryManager.Instance.AddTool(item.resultTool);
-        }
-
         metalAmount.text = metal + "/" + item.metalAmount.ToString();
         plasticAmount.text = plastic + "/" + item.plasticAmount.ToString();
         cardboardAmount.text = cardboard + "/" + item.cardboardAmount.ToString();
@@ -98,12 +82,19 @@ public class Fabrication : MonoBehaviour
 
     public void FabricateButton()
     {
-        if (canFabricate) 
-        {
-            isFabricating = true;            
-            FabricationItem(indexFabricationItem);
-            canFabricate = false;
-        }
+        if (!canFabricate)
+            return;
+
+        var item = InventoryManager.Instance.unlockedBlueprints[indexFabricationItem];
+
+        InventoryManager.Instance.RemoveRecyclables(MaterialType.Metal, item.metalAmount);
+        InventoryManager.Instance.RemoveRecyclables(MaterialType.Plastic, item.plasticAmount);
+        InventoryManager.Instance.RemoveRecyclables(MaterialType.Cardboard, item.cardboardAmount);
+        InventoryManager.Instance.RemoveRecyclables(MaterialType.Electronic, item.electronicAmount);
+
+        InventoryManager.Instance.AddTool(item.resultTool);
+
+        FabricationItem(indexFabricationItem);
     }
 
     public void Next()
