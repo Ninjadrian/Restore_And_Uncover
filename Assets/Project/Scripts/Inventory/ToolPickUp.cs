@@ -1,20 +1,11 @@
 using UnityEngine;
 
-public class ToolPickUp : MonoBehaviour
+public class ToolPickUp : PickupBase
 {
     public ToolData toolData;
 
-    public void PickUp()
+    protected override void AddToInventory()
     {
         InventoryManager.Instance.AddTool(toolData);
-
-        var idComp = GetComponent<UniquePickupId>();
-
-        if (idComp != null)
-        {
-            PlayerProfiler.Instance.MarkPickupCollected(idComp.id);
-        }
-
-        Destroy(gameObject);
     }
 }

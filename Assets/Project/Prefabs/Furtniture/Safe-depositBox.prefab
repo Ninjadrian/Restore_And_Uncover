@@ -1261,7 +1261,7 @@ GameObject:
   - component: {fileID: 4281619698536016736}
   - component: {fileID: 4867491097472902149}
   m_Layer: 0
-  m_Name: CajaFuerte
+  m_Name: Safe-depositBox
   m_TagString: Strongbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

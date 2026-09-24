@@ -1,30 +1,19 @@
 using UnityEngine;
 
-public class CollectablePickUp : MonoBehaviour
+public class CollectablePickUp : PickupBase
 {
     public CollectableData collectableData;
 
-    private void Awake()
-    {
-        var idComp = GetComponent<UniquePickupId>();
-        if (idComp != null && PlayerProfiler.Instance.IsPickUpCollected(idComp.id))
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    public void PickUp()
+    protected override void AddToInventory()
     {
         InventoryManager.Instance.AddCollectable(collectableData);
+    }
 
-        var idComp = GetComponent<UniquePickupId>();
-
-        if (idComp != null)
+    protected override void AfterPickUP()
+    {
+        if (pickupId != null && LevelCompletionManager.Instance != null)
         {
-            PlayerProfiler.Instance.MarkPickupCollected(idComp.id);
+            LevelCompletionManager.Instance.CheckRequiredItem(pickupId.id);
         }
-
-        LevelCompletionManager.Instance.CheckRequiredItem(idComp.id);
-        Destroy(gameObject);
     }
 }

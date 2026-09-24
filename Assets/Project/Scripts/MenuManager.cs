@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class MenuManager : MonoBehaviour
 {
@@ -29,10 +30,9 @@ public class MenuManager : MonoBehaviour
         {
             menuPanel.SetActive(true);
         }
-
-        else
+        else 
         {
-            hud.SetActive(true);   
+            hud?.SetActive(true);   
         }
     }
 
@@ -45,12 +45,12 @@ public class MenuManager : MonoBehaviour
             Pause();
         }
 
-        if (Input.GetKeyDown(KeyCode.N))
+        if (Input.GetKeyDown(KeyCode.N) && hud != null)
         {
             hud.SetActive(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.M) && hud != null)
         {
             hud.SetActive(true);
         }
@@ -60,7 +60,10 @@ public class MenuManager : MonoBehaviour
     {
         menuPanel.SetActive(false);
         optionsPanel.SetActive(false);
-        singlePlayerPanel.SetActive(false);
+
+        if (singlePlayerPanel != null) 
+            singlePlayerPanel.SetActive(false);
+
         collectionPanel.SetActive(false);
         creditsPanel.SetActive(false);
         controlPanel.SetActive(false);
@@ -68,7 +71,8 @@ public class MenuManager : MonoBehaviour
         audioPanel.SetActive(false);
         videoPanel.SetActive(false);
 
-        hud.SetActive(false);
+        if (hud != null) 
+            hud.SetActive(false);
     }
 
     public void Menu()
@@ -153,7 +157,7 @@ public class MenuManager : MonoBehaviour
     {     
         Clear();
         isPaused = !isPaused;
-        hud.SetActive(!isPaused);
+        hud?.SetActive(!isPaused);
         menuPanel.SetActive(isPaused);
 
         if (isPaused)

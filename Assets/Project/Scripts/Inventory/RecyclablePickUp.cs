@@ -1,30 +1,19 @@
 using UnityEngine;
 
-public class RecyclablePickUp : MonoBehaviour
+public class RecyclablePickUp : PickupBase
 {
     public RecyclableData recyclableData;
 
-    private void Awake()
-    {
-        var idComp = GetComponent<UniquePickupId>();
-        if (idComp != null && PlayerProfiler.Instance.IsPickUpCollected(idComp.id))
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    public void PickUp()
+    protected override void AddToInventory()
     {
         InventoryManager.Instance.AddRecyclable(recyclableData);
+    }
 
-        var idComp = GetComponent<UniquePickupId>();
-
-        if (idComp != null)
+    protected override void AfterPickUP()
+    {
+        if (LevelCompletionManager.Instance != null)
         {
-            PlayerProfiler.Instance.MarkPickupCollected(idComp.id);
+            LevelCompletionManager.Instance.TryCompleteLevel();
         }
-
-        LevelCompletionManager.Instance.TryCompleteLevel();
-        Destroy(gameObject);
     }
 }

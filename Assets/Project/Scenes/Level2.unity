@@ -12375,8 +12375,6 @@ MonoBehaviour:
     toolObject: {fileID: 1892784478}
   - toolData: {fileID: 11400000, guid: 9f8c6228e333c61438ad7ab0f4fe6a67, type: 2}
     toolObject: {fileID: 1496034703}
-  - toolData: {fileID: 11400000, guid: d8e110726756e3e40b134e35011040e5, type: 2}
-    toolObject: {fileID: 1930854119}
   - toolData: {fileID: 11400000, guid: ea3bda65950d4674bbbe58064a3a1927, type: 2}
     toolObject: {fileID: 846251373}
   - toolData: {fileID: 11400000, guid: efc12015c0f76b14d8d0f0b82224d7c3, type: 2}
@@ -13076,7 +13074,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 990062572550536972, guid: fbde187220921524095178898807c6a7, type: 3}
       propertyPath: m_Name
-      value: Llave (2)
+      value: Key (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2210632396332126491, guid: fbde187220921524095178898807c6a7, type: 3}
+      propertyPath: id
+      value: key_03
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20483,7 +20485,7 @@ GameObject:
   m_Component:
   - component: {fileID: 957872592}
   m_Layer: 0
-  m_Name: Reciclables
+  m_Name: Recyclables
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21066,7 +21068,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 990062572550536972, guid: fbde187220921524095178898807c6a7, type: 3}
       propertyPath: m_Name
-      value: Llave (1)
+      value: Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 2210632396332126491, guid: fbde187220921524095178898807c6a7, type: 3}
+      propertyPath: id
+      value: key_02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -33299,7 +33305,7 @@ MonoBehaviour:
   interactDistance: 0.5
   interactMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   codeValue: 219785152
   blueprint: {fileID: 1779293231}
 --- !u!65 &1513755325
@@ -40222,6 +40228,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1267858854}
     m_Modifications:
+    - target: {fileID: -2302784588795257761, guid: 2c83cdebd3b85cf43bf8dc0707833726, type: 3}
+      propertyPath: id
+      value: key_card_02
+      objectReference: {fileID: 0}
     - target: {fileID: 7184828638147410656, guid: 2c83cdebd3b85cf43bf8dc0707833726, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.46681833
@@ -41406,11 +41416,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31de48e71ed97a54d8f0e179bd06a5c3, type: 3}
---- !u!1 &1930854119 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5847172141667329172, guid: 31de48e71ed97a54d8f0e179bd06a5c3, type: 3}
-  m_PrefabInstance: {fileID: 1930854118}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1930854120 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6516291644547169838, guid: 31de48e71ed97a54d8f0e179bd06a5c3, type: 3}
@@ -46048,7 +46053,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 990062572550536972, guid: fbde187220921524095178898807c6a7, type: 3}
       propertyPath: m_Name
-      value: Llave
+      value: Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 2210632396332126491, guid: fbde187220921524095178898807c6a7, type: 3}
+      propertyPath: id
+      value: key_01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

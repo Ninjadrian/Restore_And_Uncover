@@ -154,21 +154,9 @@ public class FirstPersonController : MonoBehaviour
             {
                 puzzleEvent.Raise();
             }
-            else if (hit.collider.TryGetComponent<ToolPickUp>(out var toolPickUp))
+            else if (hit.collider.TryGetComponent<PickupBase>(out var pickUp))
             {
-                toolPickUp.PickUp();
-            }
-            else if (hit.collider.TryGetComponent<RecyclablePickUp>(out var recyclablePickUp))
-            {
-                recyclablePickUp.PickUp();
-            }
-            else if (hit.collider.TryGetComponent<CollectablePickUp>(out var collectablePickUp))
-            {
-                collectablePickUp.PickUp();
-            }
-            else if (hit.collider.TryGetComponent<BlueprintPickUp>(out var blueprintPickUp))
-            {
-                blueprintPickUp.PickUp();
+                pickUp.PickUp();
             }
             else if (hit.collider.TryGetComponent<ValidateKeyCard>(out var keyCard))
             {

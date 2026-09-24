@@ -16,7 +16,7 @@ MonoBehaviour:
   toolName: Advanced Vacuum Bluerprint
   icon: {fileID: 21300000, guid: 8e574333e0edc6a4982fb9f70653097f, type: 3}
   resultTool: {fileID: 11400000, guid: a66b3f687c5bf32478b3973e0fdf3b1b, type: 2}
-  metalAmount: 18
+  metalAmount: 17
   plasticAmount: 12
   cardboardAmount: 4
-  elecronicAmount: 10
+  electronicAmount: 10

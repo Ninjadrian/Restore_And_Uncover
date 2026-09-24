@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4914576708101239910}
   - component: {fileID: 7903943798370164374}
   - component: {fileID: 2196097978667181972}
+  - component: {fileID: -2302784588795257761}
   m_Layer: 0
   m_Name: KeyCard
   m_TagString: Item
@@ -90,6 +91,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &7903943798370164374
 BoxCollider:
@@ -125,3 +127,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToolPickUp
   toolData: {fileID: 11400000, guid: ea3bda65950d4674bbbe58064a3a1927, type: 2}
+--- !u!114 &-2302784588795257761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7504100793745606740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1452ac771faf1e47a920d0d77ec58f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UniquePickupId
+  id: 
