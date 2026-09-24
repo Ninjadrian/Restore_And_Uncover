@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class ToolDatabase : MonoBehaviour
 {
-    public static ToolDatabase instance;
+    public static ToolDatabase Instance;
 
     public List<ToolData> allTools;
 
@@ -11,9 +11,16 @@ public class ToolDatabase : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
 
         toolById = new Dictionary<string, ToolData>();
+
         foreach(var  tool in allTools)
         {
             toolById[tool.id] = tool;

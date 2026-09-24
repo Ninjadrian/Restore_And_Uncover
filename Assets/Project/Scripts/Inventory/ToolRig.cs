@@ -25,12 +25,18 @@ public class ToolRig : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         Instance = this;
     }
 
     public void TurnOff()
     {
-        //Apaga todo
+        //Turn everything off
         for (int i = 0; i < tools.Count; i++)
         {
             if (tools[i].toolObject != null)

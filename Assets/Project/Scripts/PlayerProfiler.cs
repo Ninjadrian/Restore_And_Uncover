@@ -110,7 +110,7 @@ public class PlayerProfiler : MonoBehaviour
 
         foreach (string toolId in data.ownedTools)
         {
-            ToolData tool = ToolDatabase.instance.GetTool(toolId);
+            ToolData tool = ToolDatabase.Instance.GetTool(toolId);
             if (tool != null)
                 InventoryManager.Instance.inventoryTools.Add(tool);
         }
