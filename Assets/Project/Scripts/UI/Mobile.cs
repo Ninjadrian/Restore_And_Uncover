@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class Mobile : MonoBehaviour
 {
-    public static Mobile Instance;
+    public static Mobile Instance { get; private set; }
 
     public GameObject mobilePanel;
     public GameObject crosshairs;
@@ -21,6 +21,12 @@ public class Mobile : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         Instance = this;
 
         ClearMessages();
