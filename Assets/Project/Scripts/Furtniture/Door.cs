@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class Door : MonoBehaviour
+public class Door : MonoBehaviour, IInteractable
 {
     [SerializeField] private string keyId;
 
@@ -18,6 +18,11 @@ public class Door : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+    }
+
+    public void Interact()
+    {
+        OpenDoor();
     }
 
     public void OpenDoor()

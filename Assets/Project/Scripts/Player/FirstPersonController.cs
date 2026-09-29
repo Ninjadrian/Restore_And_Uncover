@@ -28,10 +28,6 @@ public class FirstPersonController : MonoBehaviour
     public float interactDistance = 3f;
     public LayerMask interactMask;
 
-    private Drawer drawer;
-    private Door door;
-    private HatchDoor hatchDoor;
-
     public GameEvent puzzleEvent;
 
     void Start()
@@ -131,36 +127,17 @@ public class FirstPersonController : MonoBehaviour
         {
             //Debug.Log("El objeto es: " + hit.collider.name);
 
-            if (hit.collider.TryGetComponent<LightSwitch>(out var lightSwitch))
+            if (hit.collider.TryGetComponent<HatchDoor>(out var hatchDoor))
             {
-                lightSwitch.SwitchLights();
-            }
-            else if (hit.collider.CompareTag("Drawer"))
-            {
-                drawer = hit.collider.GetComponent<Drawer>();
-                drawer.OpenDrawer();
-            }
-            else if (hit.collider.CompareTag("Door"))
-            {
-                door = hit.collider.GetComponent<Door>();
-                door.OpenDoor();
-            }
-            else if (hit.collider.CompareTag("HatchDoor"))
-            {
-                hatchDoor = hit.collider.GetComponent<HatchDoor>();
                 hatchDoor.TryOpenHatchDoor();
             }
             else if (hit.collider.CompareTag("Puzzle"))
             {
                 puzzleEvent.Raise();
             }
-            else if (hit.collider.TryGetComponent<PickupBase>(out var pickUp))
+            else if (hit.collider.TryGetComponent<IInteractable>(out var interactable))
             {
-                pickUp.PickUp();
-            }
-            else if (hit.collider.TryGetComponent<ValidateKeyCard>(out var keyCard))
-            {
-                keyCard.ActiveSwitchCard();
+                interactable.Interact();
             }
         }
     }

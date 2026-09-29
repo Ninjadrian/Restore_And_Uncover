@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LightSwitch : MonoBehaviour
+public class LightSwitch : MonoBehaviour, IInteractable
 {
     public Light[] lights;
     public GameObject[] objects;
@@ -23,6 +23,11 @@ public class LightSwitch : MonoBehaviour
     private void HandlePowerChanged(bool value)
     {
         hasPower = value;
+    }
+
+    public void Interact()
+    {
+        SwitchLights();
     }
 
     public void SwitchLights()

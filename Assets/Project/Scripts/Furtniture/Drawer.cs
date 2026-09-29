@@ -3,7 +3,7 @@ using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class Drawer : MonoBehaviour
+public class Drawer : MonoBehaviour, IInteractable
 {
     public Vector3 localOffset = new Vector3(0f, 0f, 0.33f);
     public float duration = 1f;
@@ -17,6 +17,11 @@ public class Drawer : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+    }
+
+    public void Interact()
+    {
+        OpenDrawer();
     }
 
     public void OpenDrawer()

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class PickupBase : MonoBehaviour
+public abstract class PickupBase : MonoBehaviour, IInteractable
 {
     protected UniquePickupId pickupId;
 
@@ -12,6 +12,11 @@ public abstract class PickupBase : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void Interact()
+    {
+        PickUp();
     }
 
     public void PickUp()

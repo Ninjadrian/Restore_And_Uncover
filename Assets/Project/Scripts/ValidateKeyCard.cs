@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ValidateKeyCard : MonoBehaviour
+public class ValidateKeyCard : MonoBehaviour, IInteractable
 {
     public GameObject keyCard;
 
@@ -10,6 +10,11 @@ public class ValidateKeyCard : MonoBehaviour
         {
             keyCard.SetActive(true);
         }
+    }
+
+    public void Interact()
+    {
+        ActiveSwitchCard();
     }
 
     public void ActiveSwitchCard()
