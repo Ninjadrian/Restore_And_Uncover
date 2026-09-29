@@ -19,6 +19,7 @@ public class MenuManager : MonoBehaviour
 
     public GameEvent pauseGameEvent;
     public GameEvent playGameEvent;
+    public GameEvent resumeGameEvent;
 
     private bool isPaused = false;
 
@@ -166,7 +167,7 @@ public class MenuManager : MonoBehaviour
         }
         else
         {
-            playGameEvent.Raise();
+            resumeGameEvent.Raise();
         }
     }
 

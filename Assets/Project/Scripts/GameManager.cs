@@ -6,7 +6,9 @@ public class GameManager : MonoBehaviour
 
     public GameState CurrentState;
 
-    public GameState gameState;   
+    public GameState gameState;
+
+    private GameState stateBeforePause = GameState.Play;
 
     private void Awake()
     {
@@ -23,10 +25,30 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
+        if (gameState == GameState.Pause)
+            return;
+
+        stateBeforePause = gameState;
         gameState = GameState.Pause;
+
         Time.timeScale = 0f;
 
         UnlockCursor();
+    }
+
+    public void Resume()
+    {
+        gameState = stateBeforePause;
+        Time.timeScale = 1f;
+
+        if (gameState == GameState.Play || gameState == GameState.Puzzle)
+        {
+            LockCursor();
+        }
+        else
+        {
+            UnlockCursor();
+        }
     }
 
     public void Play()
@@ -34,9 +56,7 @@ public class GameManager : MonoBehaviour
         gameState = GameState.Play;
         Time.timeScale = 1f;
 
-        // Bloquear y esconder el cursor en el centro de la pantalla
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        LockCursor();
     }
 
     public void Puzzle()
@@ -53,6 +73,12 @@ public class GameManager : MonoBehaviour
     public void LevelCompleted()
     {
         Debug.Log("Nivel Completado");
+    }
+
+    private void LockCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void UnlockCursor()

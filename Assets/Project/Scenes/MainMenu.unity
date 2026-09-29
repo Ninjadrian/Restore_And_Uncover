@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 21963166}
   - component: {fileID: 21963165}
   - component: {fileID: 21963164}
+  - component: {fileID: 21963169}
   - component: {fileID: 21963168}
   - component: {fileID: 21963163}
   m_Layer: 0
@@ -256,6 +257,34 @@ MonoBehaviour:
       - m_Target: {fileID: 21963166}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: Puzzle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &21963169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21963162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8fba718b473e834cbc4a59d3c938c40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameEventListener
+  Event: {fileID: 11400000, guid: 042b58553703f8d4f983664b7fcefb3f, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 21963166}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Resume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13014,6 +13043,7 @@ MonoBehaviour:
   hud: {fileID: 0}
   pauseGameEvent: {fileID: 11400000, guid: 370a5b6ebc16e0f49a0423c45a9ff834, type: 2}
   playGameEvent: {fileID: 11400000, guid: 95dc5571f5b175d4d941010261a425c8, type: 2}
+  resumeGameEvent: {fileID: 0}
 --- !u!4 &1597120658
 Transform:
   m_ObjectHideFlags: 0

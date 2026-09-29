@@ -28,7 +28,7 @@ public class Fabrication : MonoBehaviour
         if (GameManager.Instance.gameState == GameState.Play ||
             GameManager.Instance.gameState == GameState.Fabricate)
         {
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.F))
             {
                 Fabricate();
             }

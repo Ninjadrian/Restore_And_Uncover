@@ -258,6 +258,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4217823}
   m_CullTransparentMesh: 1
+--- !u!1 &11160118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 11160119}
+  m_Layer: 0
+  m_Name: Furtniture
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &11160119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11160118}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 219686042}
+  - {fileID: 1473145121}
+  - {fileID: 466813791}
+  - {fileID: 1686070258}
+  - {fileID: 1705693955}
+  - {fileID: 433623078}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &13167822
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,7 +981,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 67233567946532056, guid: 1992895240364a24f9ec4c3b825bc9ff, type: 3}
       propertyPath: m_Name
-      value: BotellaPlastico (1)
+      value: PlasticBottle (1)
       objectReference: {fileID: 0}
     - target: {fileID: 67233567946532056, guid: 1992895240364a24f9ec4c3b825bc9ff, type: 3}
       propertyPath: m_TagString
@@ -1518,13 +1555,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUDPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 950554485037299104, guid: 04d1f03d1f2a00347872885cea7f75e0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1155645799270571191, guid: 04d1f03d1f2a00347872885cea7f75e0, type: 3}
       propertyPath: m_Name
       value: HUDCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 1155645799270571191, guid: 04d1f03d1f2a00347872885cea7f75e0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2241316409382985091, guid: 04d1f03d1f2a00347872885cea7f75e0, type: 3}
       propertyPath: m_Type
@@ -1720,7 +1761,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6030284477469461333, guid: 405305e7fe73ff547929e82e24a75289, type: 3}
       propertyPath: m_Name
-      value: LataAluminio (8)
+      value: AluminiumCan (5)
       objectReference: {fileID: 0}
     - target: {fileID: 6030284477469461333, guid: 405305e7fe73ff547929e82e24a75289, type: 3}
       propertyPath: m_TagString
@@ -1963,6 +2004,108 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 78705881}
   m_CullTransparentMesh: 1
+--- !u!1 &80002957
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 80002958}
+  - component: {fileID: 80002961}
+  - component: {fileID: 80002960}
+  - component: {fileID: 80002959}
+  m_Layer: 0
+  m_Name: PuzzleCanvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &80002958
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80002957}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1034736831}
+  m_Father: {fileID: 5928249631475284625}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &80002959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80002957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &80002960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80002957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &80002961
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80002957}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &107052752
 GameObject:
   m_ObjectHideFlags: 0
@@ -4388,7 +4531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7571304731796322997, guid: 4969e30edd8d7bc439fc07e24a2bc5db, type: 3}
       propertyPath: m_Name
-      value: PiezasElectronicas (1)
+      value: ElectronicComponent (1)
       objectReference: {fileID: 0}
     - target: {fileID: 7571304731796322997, guid: 4969e30edd8d7bc439fc07e24a2bc5db, type: 3}
       propertyPath: m_TagString
@@ -4640,7 +4783,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 219686041}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.8, y: 1.5, z: -0.06623}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4657,7 +4800,7 @@ Transform:
   - {fileID: 2023554688}
   - {fileID: 1779810263}
   - {fileID: 67989816}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 11160119}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &220976300
 GameObject:
@@ -5511,7 +5654,7 @@ GameObject:
   m_Component:
   - component: {fileID: 302224182}
   m_Layer: 0
-  m_Name: Electronicos
+  m_Name: Electronics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6190,7 +6333,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6030284477469461333, guid: 405305e7fe73ff547929e82e24a75289, type: 3}
       propertyPath: m_Name
-      value: LataAluminio (2)
+      value: AluminiumCan (2)
       objectReference: {fileID: 0}
     - target: {fileID: 6030284477469461333, guid: 405305e7fe73ff547929e82e24a75289, type: 3}
       propertyPath: m_TagString
@@ -7039,7 +7182,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3781086850808575668, guid: f9fd307ae56854548ad6bd79eea79986, type: 3}
       propertyPath: m_Name
-      value: CajaCarton (2)
+      value: CardboardBox (6)
       objectReference: {fileID: 0}
     - target: {fileID: 3781086850808575668, guid: f9fd307ae56854548ad6bd79eea79986, type: 3}
       propertyPath: m_TagString
@@ -7560,7 +7703,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 433623077}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.5, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7572,7 +7715,7 @@ Transform:
   - {fileID: 192275894}
   - {fileID: 1909670531}
   - {fileID: 643475308}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 11160119}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &451608500
 PrefabInstance:
@@ -7584,7 +7727,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 67233567946532056, guid: 1992895240364a24f9ec4c3b825bc9ff, type: 3}
       propertyPath: m_Name
-      value: BotellaPlastico (3)
+      value: PlasticBottle (3)
       objectReference: {fileID: 0}
     - target: {fileID: 67233567946532056, guid: 1992895240364a24f9ec4c3b825bc9ff, type: 3}
       propertyPath: m_TagString
@@ -7950,7 +8093,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 466813790}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2, y: 1.5, z: -1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7961,7 +8104,7 @@ Transform:
   - {fileID: 682097624}
   - {fileID: 1999880716}
   - {fileID: 1157938000}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 11160119}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &468021016
 GameObject:
@@ -9014,7 +9157,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6030284477469461333, guid: 405305e7fe73ff547929e82e24a75289, type: 3}
       propertyPath: m_Name
-      value: LataAluminio (11)
+      value: AluminiumCan (10)
       objectReference: {fileID: 0}
     - target: {fileID: 6030284477469461333, guid: 405305e7fe73ff547929e82e24a75289, type: 3}
       propertyPath: m_TagString
@@ -9427,7 +9570,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3781086850808575668, guid: f9fd307ae56854548ad6bd79eea79986, type: 3}
       propertyPath: m_Name
-      value: CajaCarton (1)
+      value: CardboardBox (5)
       objectReference: {fileID: 0}
     - target: {fileID: 3781086850808575668, guid: f9fd307ae56854548ad6bd79eea79986, type: 3}
       propertyPath: m_TagString
@@ -9554,7 +9697,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6030284477469461333, guid: 405305e7fe73ff547929e82e24a75289, type: 3}
       propertyPath: m_Name
-      value: LataAluminio (1)
+      value: AluminiumCan (1)
       objectReference: {fileID: 0}
     - target: {fileID: 6030284477469461333, guid: 405305e7fe73ff547929e82e24a75289, type: 3}
       propertyPath: m_TagString
@@ -10064,7 +10207,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6030284477469461333, guid: 405305e7fe73ff547929e82e24a75289, type: 3}
       propertyPath: m_Name
-      value: LataAluminio (7)
+      value: AluminiumCan (7)
       objectReference: {fileID: 0}
     - target: {fileID: 6030284477469461333, guid: 405305e7fe73ff547929e82e24a75289, type: 3}
       propertyPath: m_TagString
@@ -10653,7 +10796,7 @@ GameObject:
   m_Component:
   - component: {fileID: 614972067}
   m_Layer: 0
-  m_Name: Botellas
+  m_Name: Bottles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11993,7 +12136,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6030284477469461333, guid: 405305e7fe73ff547929e82e24a75289, type: 3}
       propertyPath: m_Name
-      value: LataAluminio (5)
+      value: AluminiumCan (4)
       objectReference: {fileID: 0}
     - target: {fileID: 6030284477469461333, guid: 405305e7fe73ff547929e82e24a75289, type: 3}
       propertyPath: m_TagString
@@ -12287,7 +12430,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 67233567946532056, guid: 1992895240364a24f9ec4c3b825bc9ff, type: 3}
       propertyPath: m_Name
-      value: BotellaPlastico (2)
+      value: PlasticBottle (2)
       objectReference: {fileID: 0}
     - target: {fileID: 67233567946532056, guid: 1992895240364a24f9ec4c3b825bc9ff, type: 3}
       propertyPath: m_TagString
@@ -14312,7 +14455,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3781086850808575668, guid: f9fd307ae56854548ad6bd79eea79986, type: 3}
       propertyPath: m_Name
-      value: CajaCarton (3)
+      value: CardboardBox (4)
       objectReference: {fileID: 0}
     - target: {fileID: 3781086850808575668, guid: f9fd307ae56854548ad6bd79eea79986, type: 3}
       propertyPath: m_IsActive
@@ -14468,7 +14611,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3781086850808575668, guid: f9fd307ae56854548ad6bd79eea79986, type: 3}
       propertyPath: m_Name
-      value: CajaCarton (4)
+      value: CardboardBox
       objectReference: {fileID: 0}
     - target: {fileID: 3781086850808575668, guid: f9fd307ae56854548ad6bd79eea79986, type: 3}
       propertyPath: m_IsActive
@@ -15046,7 +15189,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6030284477469461333, guid: 405305e7fe73ff547929e82e24a75289, type: 3}
       propertyPath: m_Name
-      value: LataAluminio (4)
+      value: AluminiumCan (11)
       objectReference: {fileID: 0}
     - target: {fileID: 6030284477469461333, guid: 405305e7fe73ff547929e82e24a75289, type: 3}
       propertyPath: m_TagString
@@ -15562,7 +15705,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 67233567946532056, guid: 1992895240364a24f9ec4c3b825bc9ff, type: 3}
       propertyPath: m_Name
-      value: BotellaPlastico (4)
+      value: PlasticBottle (4)
       objectReference: {fileID: 0}
     - target: {fileID: 67233567946532056, guid: 1992895240364a24f9ec4c3b825bc9ff, type: 3}
       propertyPath: m_TagString
@@ -15938,7 +16081,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6030284477469461333, guid: 405305e7fe73ff547929e82e24a75289, type: 3}
       propertyPath: m_Name
-      value: LataAluminio (6)
+      value: AluminiumCan (6)
       objectReference: {fileID: 0}
     - target: {fileID: 6030284477469461333, guid: 405305e7fe73ff547929e82e24a75289, type: 3}
       propertyPath: m_TagString
@@ -17588,6 +17731,143 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8879737724687151807, guid: 27fadc8d20203214ea77a59df1a4d2cf, type: 3}
   m_PrefabInstance: {fileID: 5928249631475284621}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1034736830
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1034736831}
+  - component: {fileID: 1034736833}
+  - component: {fileID: 1034736832}
+  m_Layer: 0
+  m_Name: CodeText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1034736831
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034736830}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 80002958}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -50}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &1034736832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034736830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: efcbdcfaf56ec424db0a67246a68b0bb, type: 2}
+  m_sharedMaterial: {fileID: 5820405667166038944, guid: efcbdcfaf56ec424db0a67246a68b0bb, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 80
+  m_fontSizeBase: 80
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1034736833
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034736830}
+  m_CullTransparentMesh: 1
 --- !u!1 &1038230657
 GameObject:
   m_ObjectHideFlags: 0
@@ -17858,7 +18138,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3781086850808575668, guid: f9fd307ae56854548ad6bd79eea79986, type: 3}
       propertyPath: m_Name
-      value: CajaCarton (5)
+      value: CardboardBox (1)
       objectReference: {fileID: 0}
     - target: {fileID: 3781086850808575668, guid: f9fd307ae56854548ad6bd79eea79986, type: 3}
       propertyPath: m_IsActive
@@ -18503,7 +18783,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6030284477469461333, guid: 405305e7fe73ff547929e82e24a75289, type: 3}
       propertyPath: m_Name
-      value: LataAluminio (3)
+      value: AluminiumCan (3)
       objectReference: {fileID: 0}
     - target: {fileID: 6030284477469461333, guid: 405305e7fe73ff547929e82e24a75289, type: 3}
       propertyPath: m_TagString
@@ -19124,7 +19404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1112058578}
   m_Layer: 0
-  m_Name: Latas
+  m_Name: Cans
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19386,8 +19666,6 @@ GameObject:
   - component: {fileID: 1133714889}
   - component: {fileID: 1133714891}
   - component: {fileID: 1133714890}
-  - component: {fileID: 1133714893}
-  - component: {fileID: 1133714892}
   m_Layer: 0
   m_Name: Cube.003
   m_TagString: Untagged
@@ -19468,54 +19746,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1133714888}
   m_Mesh: {fileID: -8678823145569952518, guid: 80ab31de547dc274e91ceae59abfecba, type: 3}
---- !u!65 &1133714892
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1133714888}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.0024937931, y: 0.00092038163, z: 0.00025038037}
-  m_Center: {x: -0.003, y: -0.0002914081, z: -0.001816108}
---- !u!54 &1133714893
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1133714888}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
 --- !u!1 &1147979861
 GameObject:
   m_ObjectHideFlags: 0
@@ -20979,7 +21209,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 67233567946532056, guid: 1992895240364a24f9ec4c3b825bc9ff, type: 3}
       propertyPath: m_Name
-      value: BotellaPlastico (7)
+      value: PlasticBottle (7)
       objectReference: {fileID: 0}
     - target: {fileID: 67233567946532056, guid: 1992895240364a24f9ec4c3b825bc9ff, type: 3}
       propertyPath: m_TagString
@@ -21218,6 +21448,7 @@ MonoBehaviour:
   hud: {fileID: 250867731}
   pauseGameEvent: {fileID: 11400000, guid: 370a5b6ebc16e0f49a0423c45a9ff834, type: 2}
   playGameEvent: {fileID: 11400000, guid: 95dc5571f5b175d4d941010261a425c8, type: 2}
+  resumeGameEvent: {fileID: 11400000, guid: 042b58553703f8d4f983664b7fcefb3f, type: 2}
 --- !u!4 &1298838756
 Transform:
   m_ObjectHideFlags: 0
@@ -21862,7 +22093,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6030284477469461333, guid: 405305e7fe73ff547929e82e24a75289, type: 3}
       propertyPath: m_Name
-      value: LataAluminio (10)
+      value: AluminiumCan (9)
       objectReference: {fileID: 0}
     - target: {fileID: 6030284477469461333, guid: 405305e7fe73ff547929e82e24a75289, type: 3}
       propertyPath: m_TagString
@@ -24061,7 +24292,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1473145120}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.8, y: -2.75, z: -1.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -24073,7 +24304,7 @@ Transform:
   - {fileID: 1031209665}
   - {fileID: 1294486488}
   - {fileID: 70071305}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 11160119}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1475202647
 GameObject:
@@ -24435,7 +24666,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1499991151}
   m_Layer: 0
-  m_Name: Carton
+  m_Name: Cardboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27152,7 +27383,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1686070257}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1, y: 1.5, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -27160,7 +27391,7 @@ Transform:
   - {fileID: 659295955}
   - {fileID: 727171257}
   - {fileID: 2012897832}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 11160119}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1694252571
 GameObject:
@@ -27423,7 +27654,7 @@ Transform:
   - {fileID: 1527293926}
   - {fileID: 369899315}
   - {fileID: 689370225}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 11160119}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1720712646
 GameObject:
@@ -27965,7 +28196,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 67233567946532056, guid: 1992895240364a24f9ec4c3b825bc9ff, type: 3}
       propertyPath: m_Name
-      value: BotellaPlastico (5)
+      value: PlasticBottle (5)
       objectReference: {fileID: 0}
     - target: {fileID: 67233567946532056, guid: 1992895240364a24f9ec4c3b825bc9ff, type: 3}
       propertyPath: m_TagString
@@ -29788,7 +30019,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 67233567946532056, guid: 1992895240364a24f9ec4c3b825bc9ff, type: 3}
       propertyPath: m_Name
-      value: BotellaPlastico (6)
+      value: PlasticBottle (6)
       objectReference: {fileID: 0}
     - target: {fileID: 67233567946532056, guid: 1992895240364a24f9ec4c3b825bc9ff, type: 3}
       propertyPath: m_TagString
@@ -30205,7 +30436,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5159444175014733074, guid: 8679aa32c5c1eb5488000e5be8057991, type: 3}
       propertyPath: m_Name
-      value: Librero (1)
+      value: Bookshelf (1)
       objectReference: {fileID: 0}
     - target: {fileID: 5535442399092178856, guid: 8679aa32c5c1eb5488000e5be8057991, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30567,7 +30798,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6030284477469461333, guid: 405305e7fe73ff547929e82e24a75289, type: 3}
       propertyPath: m_Name
-      value: LataAluminio (9)
+      value: AluminiumCan (8)
       objectReference: {fileID: 0}
     - target: {fileID: 6030284477469461333, guid: 405305e7fe73ff547929e82e24a75289, type: 3}
       propertyPath: m_TagString
@@ -31854,7 +32085,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3781086850808575668, guid: f9fd307ae56854548ad6bd79eea79986, type: 3}
       propertyPath: m_Name
-      value: CajaCarton (6)
+      value: CardboardBox (2)
       objectReference: {fileID: 0}
     - target: {fileID: 3781086850808575668, guid: f9fd307ae56854548ad6bd79eea79986, type: 3}
       propertyPath: m_IsActive
@@ -37799,7 +38030,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7571304731796322997, guid: 4969e30edd8d7bc439fc07e24a2bc5db, type: 3}
       propertyPath: m_Name
-      value: PiezasElectronicas
+      value: ElectronicComponent
       objectReference: {fileID: 0}
     - target: {fileID: 7571304731796322997, guid: 4969e30edd8d7bc439fc07e24a2bc5db, type: 3}
       propertyPath: m_TagString
@@ -38152,7 +38383,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 67233567946532056, guid: 1992895240364a24f9ec4c3b825bc9ff, type: 3}
       propertyPath: m_Name
-      value: BotellaPlastico
+      value: PlasticBottle
       objectReference: {fileID: 0}
     - target: {fileID: 67233567946532056, guid: 1992895240364a24f9ec4c3b825bc9ff, type: 3}
       propertyPath: m_TagString
@@ -38629,12 +38860,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3842901308978120886, guid: 27fadc8d20203214ea77a59df1a4d2cf, type: 3}
       propertyPath: m_Name
-      value: Safe-depositBoxCamera
+      value: PuzzleCamera
       objectReference: {fileID: 0}
     - target: {fileID: 3842901308978120886, guid: 27fadc8d20203214ea77a59df1a4d2cf, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4281619698536016736, guid: 27fadc8d20203214ea77a59df1a4d2cf, type: 3}
+      propertyPath: codeText
+      value: 
+      objectReference: {fileID: 1034736832}
     - target: {fileID: 4281619698536016736, guid: 27fadc8d20203214ea77a59df1a4d2cf, type: 3}
       propertyPath: codeValue
       value: 7298
@@ -38647,6 +38882,10 @@ PrefabInstance:
       propertyPath: toolPanel
       value: 
       objectReference: {fileID: 1364348994}
+    - target: {fileID: 4281619698536016736, guid: 27fadc8d20203214ea77a59df1a4d2cf, type: 3}
+      propertyPath: puzzleCamera
+      value: 
+      objectReference: {fileID: 5928249631475284624}
     - target: {fileID: 4281619698536016736, guid: 27fadc8d20203214ea77a59df1a4d2cf, type: 3}
       propertyPath: puzzleObjects
       value: 
@@ -38693,7 +38932,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8102251455536998405, guid: 27fadc8d20203214ea77a59df1a4d2cf, type: 3}
       propertyPath: m_Name
-      value: Safe-depositBox
+      value: Strongbox
       objectReference: {fileID: 0}
     - target: {fileID: 8102251455536998405, guid: 27fadc8d20203214ea77a59df1a4d2cf, type: 3}
       propertyPath: m_IsActive
@@ -38754,6 +38993,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8879737724687151807, guid: 27fadc8d20203214ea77a59df1a4d2cf, type: 3}
       insertIndex: 3
       addedObject: {fileID: 855122940}
+    - targetCorrespondingSourceObject: {fileID: 2702149219401912130, guid: 27fadc8d20203214ea77a59df1a4d2cf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 80002958}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 317469218095682884, guid: 27fadc8d20203214ea77a59df1a4d2cf, type: 3}
       insertIndex: -1
@@ -38780,6 +39022,16 @@ MonoBehaviour:
   duration: 1
   rotation: {x: 0, y: 0, z: -90}
   sfxCollection: {fileID: 0}
+--- !u!20 &5928249631475284624 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1160796758363521997, guid: 27fadc8d20203214ea77a59df1a4d2cf, type: 3}
+  m_PrefabInstance: {fileID: 5928249631475284621}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5928249631475284625 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2702149219401912130, guid: 27fadc8d20203214ea77a59df1a4d2cf, type: 3}
+  m_PrefabInstance: {fileID: 5928249631475284621}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5941440797253378330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39777,7 +40029,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6030284477469461333, guid: 405305e7fe73ff547929e82e24a75289, type: 3}
       propertyPath: m_Name
-      value: LataAluminio
+      value: AluminiumCan
       objectReference: {fileID: 0}
     - target: {fileID: 6030284477469461333, guid: 405305e7fe73ff547929e82e24a75289, type: 3}
       propertyPath: m_TagString
@@ -39985,7 +40237,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3781086850808575668, guid: f9fd307ae56854548ad6bd79eea79986, type: 3}
       propertyPath: m_Name
-      value: CajaCarton
+      value: CardboardBox (3)
       objectReference: {fileID: 0}
     - target: {fileID: 3781086850808575668, guid: f9fd307ae56854548ad6bd79eea79986, type: 3}
       propertyPath: m_TagString
@@ -40273,12 +40525,7 @@ SceneRoots:
   - {fileID: 1099880544}
   - {fileID: 5618117736721699640}
   - {fileID: 3262455691226635040}
-  - {fileID: 219686042}
-  - {fileID: 1473145121}
-  - {fileID: 466813791}
-  - {fileID: 1686070258}
-  - {fileID: 1705693955}
-  - {fileID: 433623078}
+  - {fileID: 11160119}
   - {fileID: 70376466}
   - {fileID: 8097283558908141918}
   - {fileID: 2114871976}
