@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public abstract class CodePuzzleBase : MonoBehaviour
+public abstract class CodePuzzleBase : MonoBehaviour, IInteractable
 {
     [Header("Camera")]
     [SerializeField] protected Camera puzzleCamera;
@@ -42,13 +42,19 @@ public abstract class CodePuzzleBase : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.E))
         {
-            Interact();
+            HandlePuzzleInteraction();
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
             DeactivePuzzle();
         }
+    }
+
+    public void Interact()
+    {
+        GameManager.Instance.Puzzle();
+        ActivePuzzle();
     }
 
     public virtual void ActivePuzzle()
@@ -95,7 +101,7 @@ public abstract class CodePuzzleBase : MonoBehaviour
         puzzleCamera.transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
     }
 
-    private void Interact()
+    private void HandlePuzzleInteraction()
     {
         Ray ray = puzzleCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
 

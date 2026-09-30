@@ -28,8 +28,6 @@ public class FirstPersonController : MonoBehaviour
     public float interactDistance = 3f;
     public LayerMask interactMask;
 
-    public GameEvent puzzleEvent;
-
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -127,11 +125,7 @@ public class FirstPersonController : MonoBehaviour
         {
             //Debug.Log("El objeto es: " + hit.collider.name);
 
-            if (hit.collider.CompareTag("Puzzle"))
-            {
-                puzzleEvent.Raise();
-            }
-            else if (hit.collider.TryGetComponent<IInteractable>(out var interactable))
+            if (hit.collider.TryGetComponent<IInteractable>(out var interactable))
             {
                 interactable.Interact();
             }
