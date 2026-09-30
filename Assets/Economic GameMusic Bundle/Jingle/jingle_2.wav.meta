@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4e540d568843ee7c4c5ff4c8979b865d8c699b705a443da4e7ec15a71a4f84e0
-size 691
+fileFormatVersion: 2
+guid: 904a1926d9b18bb47a4e464813bfb5e2
+AudioImporter:
+  externalObjects: {}
+  serializedVersion: 6
+  defaultSettings:
+    loadType: 0
+    sampleRateSetting: 0
+    sampleRateOverride: 44100
+    compressionFormat: 1
+    quality: 1
+    conversionMode: 0
+  platformSettingOverrides: {}
+  forceToMono: 0
+  normalize: 1
+  preloadAudioData: 1
+  loadInBackground: 0
+  ambisonic: 0
+  3D: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 231018
+  packageName: Economic GameMusic Bundle
+  packageVersion: 1.3
+  assetPath: Assets/Economic GameMusic Bundle/Jingle/jingle_2.wav
+  uploadId: 540952
