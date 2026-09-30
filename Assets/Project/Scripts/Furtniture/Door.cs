@@ -20,7 +20,7 @@ public class Door : MonoBehaviour, IInteractable
         audioSource = GetComponent<AudioSource>();
     }
 
-    public void Interact()
+    public virtual void Interact()
     {
         OpenDoor();
     }

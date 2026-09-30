@@ -127,11 +127,7 @@ public class FirstPersonController : MonoBehaviour
         {
             //Debug.Log("El objeto es: " + hit.collider.name);
 
-            if (hit.collider.TryGetComponent<HatchDoor>(out var hatchDoor))
-            {
-                hatchDoor.TryOpenHatchDoor();
-            }
-            else if (hit.collider.CompareTag("Puzzle"))
+            if (hit.collider.CompareTag("Puzzle"))
             {
                 puzzleEvent.Raise();
             }

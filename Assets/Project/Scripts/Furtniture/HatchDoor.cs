@@ -1,19 +1,12 @@
 using UnityEngine;
 
-public class HatchDoor : MonoBehaviour
+public class HatchDoor : Door
 {
-    private Door door;
-
-    private void Start()
-    {
-        door = GetComponent<Door>();
-    }
-
-    public void TryOpenHatchDoor()
+    public override void Interact()
     {
         if (GameObject.FindGameObjectsWithTag("RugPiece").Length == 0)
         {
-            door.OpenDoor();
+            OpenDoor();
         }
     }
 }

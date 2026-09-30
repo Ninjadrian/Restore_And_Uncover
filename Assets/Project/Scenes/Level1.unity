@@ -38625,7 +38625,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3986730180311807320, guid: 94e8814fa61d87e49b5237caf862e6fa, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.3939999
+      value: 1.399
       objectReference: {fileID: 0}
     - target: {fileID: 3986730180311807320, guid: 94e8814fa61d87e49b5237caf862e6fa, type: 3}
       propertyPath: m_LocalRotation.w
@@ -38659,7 +38659,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hatch
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6890784198704518064, guid: 94e8814fa61d87e49b5237caf862e6fa, type: 3}
+      propertyPath: rotation.x
+      value: -90
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4597654572789071555, guid: 94e8814fa61d87e49b5237caf862e6fa, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
