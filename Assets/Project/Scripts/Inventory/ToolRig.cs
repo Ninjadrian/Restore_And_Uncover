@@ -48,7 +48,10 @@ public class ToolRig : MonoBehaviour
 
     public void Unequip()
     {
+        currentTool = null;
+
         TurnOff();
+
         toolIcon.sprite = emptyImage;
         toolName.text = null;
     }
