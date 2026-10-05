@@ -5,75 +5,34 @@ using UnityEngine.InputSystem;
 
 public class MenuManager : MonoBehaviour
 {
-    public GameObject menuPanel;
-    public GameObject singlePlayerPanel;
-    public GameObject optionsPanel;
-    public GameObject collectionPanel;
-    public GameObject creditsPanel;
+    [SerializeField] private GameObject menuPanel;
+    [SerializeField] private GameObject singlePlayerPanel;
+    [SerializeField] private GameObject optionsPanel;
+    [SerializeField] private GameObject collectionPanel;
+    [SerializeField] private GameObject creditsPanel;
 
-    public GameObject audioPanel;
-    public GameObject videoPanel;
-    public GameObject controlPanel;
-
-    public GameObject hud;
-
-    public GameEvent pauseGameEvent;
-    public GameEvent playGameEvent;
-    public GameEvent resumeGameEvent;
-
-    private bool isPaused = false;
+    [SerializeField] private GameObject audioPanel;
+    [SerializeField] private GameObject videoPanel;
+    [SerializeField] private GameObject controlPanel;
 
     private void Start()
     {
         Clear();
 
-        if (SceneManager.GetActiveScene().name == "MainMenu")
-        {
-            menuPanel.SetActive(true);
-        }
-        else 
-        {
-            hud?.SetActive(true);   
-        }
-    }
-
-    private void Update()
-    {
-        if (SceneManager.GetActiveScene().name == "MainMenu") return;
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Pause();
-        }
-
-        if (Input.GetKeyDown(KeyCode.N) && hud != null)
-        {
-            hud.SetActive(false);
-        }
-
-        if (Input.GetKeyDown(KeyCode.M) && hud != null)
-        {
-            hud.SetActive(true);
-        }
+        menuPanel.SetActive(true);        
     }
 
     public void Clear()
     {
         menuPanel.SetActive(false);
         optionsPanel.SetActive(false);
-
-        if (singlePlayerPanel != null) 
-            singlePlayerPanel.SetActive(false);
-
+        singlePlayerPanel.SetActive(false);
         collectionPanel.SetActive(false);
         creditsPanel.SetActive(false);
+        
         controlPanel.SetActive(false);
-
         audioPanel.SetActive(false);
         videoPanel.SetActive(false);
-
-        if (hud != null) 
-            hud.SetActive(false);
     }
 
     public void Menu()
@@ -92,6 +51,7 @@ public class MenuManager : MonoBehaviour
     {
         PlayerProfiler.Instance.StartNewGame();
         InventoryManager.Instance.InitializeInventory();
+
         GameManager.Instance.Play();
         SceneManager.LoadScene("Level1");
     }
@@ -99,10 +59,16 @@ public class MenuManager : MonoBehaviour
     public void ContinueSingleGame()
     {
         PlayerProfiler.Instance.LoadProfile();
-        
-        string sceneName = PlayerProfiler.Instance.CurrentLevelConfig.sceneName;
+
+        LevelConfigSO levelConfig = PlayerProfiler.Instance.CurrentLevelConfig;
+
+        if (levelConfig == null || string.IsNullOrEmpty(levelConfig.sceneName))
+        {
+            return;
+        }
+
         GameManager.Instance.Play();
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(levelConfig.sceneName);
     }
 
     public void Cooperative()
@@ -112,69 +78,43 @@ public class MenuManager : MonoBehaviour
 
     public void Options()
     {
-        menuPanel.SetActive(false);
-        audioPanel.SetActive(false);
-        videoPanel.SetActive(false);
-        controlPanel.SetActive(false);
+        Clear();
         optionsPanel.SetActive(true);
     }
 
     public void AudioOptions()
     {
-        optionsPanel.SetActive(false);
+        Clear();
         audioPanel.SetActive(true);
     }
 
     public void VideoOptions()
     {
-        optionsPanel.SetActive(false);
+        Clear();
         videoPanel.SetActive(true);
     }
 
     public void ControlOptions()
     {
-        optionsPanel.SetActive(false);
+        Clear();
         controlPanel.SetActive(true);
     }
 
     public void Collection()
     {
-        menuPanel.SetActive(false);
+        Clear();
         collectionPanel.SetActive(true);
     }
 
     public void Credits()
     {
-        menuPanel.SetActive(false);
+        Clear();
         creditsPanel.SetActive(true);  
     }
 
     public void Exit()
     {
         Application.Quit();
-    }
-
-    public void Pause()
-    {     
-        Clear();
-        isPaused = !isPaused;
-        hud?.SetActive(!isPaused);
-        menuPanel.SetActive(isPaused);
-
-        if (isPaused)
-        {
-            pauseGameEvent.Raise();
-        }
-        else
-        {
-            resumeGameEvent.Raise();
-        }
-    }
-
-    public void ReturnToMainMenu()
-    {
-        PlayerProfiler.Instance.SaveProfile();
-        SceneManager.LoadScene("MainMenu");       
     }
 }
 

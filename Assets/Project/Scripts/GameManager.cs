@@ -23,6 +23,14 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    public void Home()
+    {
+        gameState = GameState.Home;
+        Time.timeScale = 1f;
+
+        UnlockCursor();
+    }
+
     public void Pause()
     {
         if (gameState == GameState.Pause)
